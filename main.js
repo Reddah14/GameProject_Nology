@@ -4,6 +4,15 @@ console.log(lifeBarsArray);
 const buttonsArray = document.querySelectorAll("button");
 console.log(buttonsArray);
 
+function cpuSelectRandomOption() {
+  console.log('cpu is ON!!!');
+  const cpuButtonsArray = Object.values(buttonsArray).filter( (buttons, index) => {
+    return index > 2;
+  })
+  console.log(cpuButtonsArray);
+  const item = cpuButtonsArray[Math.floor(Math.random()*cpuButtonsArray.length)];
+  console.log("random button: ", item);
+}
 buttonsArray.forEach(button => {
 
   button.addEventListener("click", event => {

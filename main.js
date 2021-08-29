@@ -71,6 +71,29 @@ buttonsArray.forEach(button => {
       }
     }
     
+    /* if pizza button is clicked */
+    if ( event.target.name === "pizza" ) {
+      const regexOption = /\d+/g; // to select only numbers
+      let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
+      let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
+      let currentPlayerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
+      console.log('rival life clean: ', currentPlayerOneLifeCleanAndTypeNumber); // 75 (number type)
+      const pizzaHealing = 20;
+      let modifiedLifeTypeNumber = currentPlayerOneLifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
+      console.log(modifiedLifeTypeNumber);
+
+      let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
+      let readyToApplyLife = modifiedFormattedLife + "%";
+      console.log( typeof readyToApplyLife);
+
+      lifeBarsArray[0].style.width = readyToApplyLife;
+      setTimeout(function cpuTurnDecision(){
+        // After waiting for 3 seconds, call the function below.
+        console.log("from pizza");
+        cpuSelectRandomOption();
+      }, 3000);
+      
+    }    
   })
 });
 

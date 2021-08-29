@@ -46,11 +46,11 @@ body {
   &__player1 {
     background-color: turquoise;
 
-    &--buttons {
+    &-buttons {
       margin-bottom: 10px;
       display: flex;
 
-      &-attack {
+      &--attack {
         margin-top: 10px;
         background-color:saddlebrown;
       }

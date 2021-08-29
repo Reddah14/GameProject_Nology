@@ -29,6 +29,10 @@ buttonsArray.forEach(button => {
         alert("KO!");
       } else {
         lifeBarsArray[1].style.width = readyToApplyLife;
+        setTimeout(function cpuTurnDecision(){
+          // After waiting for 3 seconds, call the function below.
+          cpuSelectRandomOption();
+      }, 3000);
       } 
     }
     

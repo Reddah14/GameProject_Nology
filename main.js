@@ -3,6 +3,26 @@ console.log(lifeBarsArray);
 
 const buttonsArray = document.querySelectorAll("button");
 console.log(buttonsArray);
+function CPUselectRandomOption() {
+  console.log('cpu is ON!!!');
+  const cpuButtonsArray = Object.values(buttonsArray).filter( (button, index) => {
+    return index > 2;
+  })
+  const randomButton = cpuButtonsArray[Math.floor(Math.random()*cpuButtonsArray.length)];
+
+  if ( randomButton.value === "attack" ) {
+    console.log("attack button ON");
+    CPUattackPlayerOne();
+  } else if ( randomButton.value === "spell" ) {
+    console.log("spell button ON");
+    CPUspellPlayerOne();
+  } else if ( randomButton.value === "pizza" ) {
+    console.log("pizza button ON");
+    CPUeatPizza();
+  } else {
+    console.log("cpu button not catched");
+  }
+}
 
 function playerOneAttackCPU() {
   const regexOption = /\d+/g; // to select only numbers
@@ -87,6 +107,65 @@ function cpuSelectRandomOption() {
   console.log(cpuButtonsArray);
   const item = cpuButtonsArray[Math.floor(Math.random()*cpuButtonsArray.length)];
   console.log("random button: ", item);
+function CPUattackPlayerOne() {
+  const regexOption = /\d+/g; // to select only numbers
+  let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
+  let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
+  let playerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
+  console.log('rival life clean: ', playerOneLifeCleanAndTypeNumber); // 75 (number type)
+  const attackDamage = 35;
+  let modifiedLifeTypeNumber = playerOneLifeCleanAndTypeNumber - attackDamage; // cambio el valor
+  console.log(modifiedLifeTypeNumber);
+
+  let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
+  let readyToApplyLife = modifiedFormattedLife + "%";
+  console.log( typeof readyToApplyLife);
+
+  if ( (lifeBarsArray[0].style.width = readyToApplyLife) <= "0%" ) {
+    lifeBarsArray[0].style.width = "0%";
+    alert("KO!");
+  } else {
+    lifeBarsArray[0].style.width = readyToApplyLife;
+  }    
+}
+
+function CPUspellPlayerOne() {
+  const regexOption = /\d+/g; // to select only numbers
+  let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
+  let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
+  let playerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
+  console.log('rival life clean: ', playerOneLifeCleanAndTypeNumber); // 75 (number type)
+  const spellDamage = 25;
+  let modifiedLifeTypeNumber = playerOneLifeCleanAndTypeNumber - spellDamage; // cambio el valor
+  console.log(modifiedLifeTypeNumber);
+
+  let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
+  let readyToApplyLife = modifiedFormattedLife + "%";
+  console.log( typeof readyToApplyLife);
+
+  if ( (lifeBarsArray[0].style.width = readyToApplyLife) <= "0%" ) {
+    lifeBarsArray[0].style.width = "0%";
+    alert("KO!");
+  } else {
+    lifeBarsArray[0].style.width = readyToApplyLife;
+  }
+}
+
+function CPUeatPizza() {
+  const regexOption = /\d+/g; // to select only numbers
+  let CPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
+  let CPUlifeClean = CPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
+  let currentCPUlifeCleanAndTypeNumber = parseInt(CPUlifeClean);
+  console.log('rival life clean: ', currentCPUlifeCleanAndTypeNumber); // 75 (number type)
+  const pizzaHealing = 20;
+  let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
+  console.log(modifiedLifeTypeNumber);
+
+  let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
+  let readyToApplyLife = modifiedFormattedLife + "%";
+  console.log( typeof readyToApplyLife);
+
+  lifeBarsArray[1].style.width = readyToApplyLife;  
 }
 buttonsArray.forEach(button => {
 

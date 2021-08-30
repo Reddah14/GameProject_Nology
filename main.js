@@ -2,7 +2,11 @@ alert("Hello")const lifeBarsArray = document.getElementsByClassName("progress-ba
 console.log(lifeBarsArray);
 
 const buttonsArray = document.querySelectorAll("button");
-console.log(buttonsArray);
+//console.log(buttonsArray);
+
+const logPannel = document.getElementsByClassName("header__info--logPannel")[0];
+console.log(logPannel.innerText);
+
 function CPUselectRandomOption() {
   console.log('cpu is ON!!!');
   const cpuButtonsArray = Object.values(buttonsArray).filter( (button, index) => {
@@ -43,7 +47,8 @@ function playerOneAttackCPU() {
     alert("KO!");
   } else {
     lifeBarsArray[1].style.width = readyToApplyLife;
-    setTimeout(function cpuTurnDecision(){
+    logPannel.innerText = "Player 1 Attacks 🗡🗡🗡 and takes 30 life points . . . ."
+    setTimeout(function cpuTurnDecision() {
       // After waiting for 3 seconds, call the function below.
       console.log("from attack");
       CPUselectRandomOption();
@@ -70,7 +75,8 @@ function playerOneSpellCPU() {
     alert("KO!");
   } else {
     lifeBarsArray[1].style.width = readyToApplyLife;
-    setTimeout(function cpuTurnDecision(){
+    logPannel.innerText = "Player 1 Spells on rival giff ✨! Takes 20 life points . . . ."
+    setTimeout(function cpuTurnDecision() {
       // After waiting for 3 seconds, call the function below.
       console.log("from spell");
       CPUselectRandomOption();
@@ -92,8 +98,9 @@ function playerOneEatPizza() {
   let readyToApplyLife = modifiedFormattedLife + "%";
   console.log( typeof readyToApplyLife);
 
+  logPannel.innerText = "Player 1 eats a slice of pizza 🍕! Recovers 15 life points . . . ."
   lifeBarsArray[0].style.width = readyToApplyLife;
-  setTimeout(function cpuTurnDecision(){
+  setTimeout(function cpuTurnDecision() {
     // After waiting for 3 seconds, call the function below.
     console.log("from pizza");
     CPUselectRandomOption();
@@ -118,6 +125,7 @@ function CPUattackPlayerOne() {
     lifeBarsArray[0].style.width = "0%";
     alert("KO!");
   } else {
+    logPannel.innerText = "CPU Attacks!! 🗡🗡🗡 on Player 1 !  -30 life points . . . ."
     lifeBarsArray[0].style.width = readyToApplyLife;
   }    
 }
@@ -140,6 +148,7 @@ function CPUspellPlayerOne() {
     lifeBarsArray[0].style.width = "0%";
     alert("KO!");
   } else {
+    logPannel.innerText = "CPU Spells on Player 1 !! ✨✨  -20 life points . . . ."
     lifeBarsArray[0].style.width = readyToApplyLife;
   }
 }
@@ -158,8 +167,10 @@ function CPUeatPizza() {
   let readyToApplyLife = modifiedFormattedLife + "%";
   console.log( typeof readyToApplyLife);
 
+  logPannel.innerText = "CPU has a Pizza Fest 🍕🍕🍕 And recovers 15 life points . . . ."
   lifeBarsArray[1].style.width = readyToApplyLife;  
 }
+
 buttonsArray.forEach(button => {
 
   button.addEventListener("click", event => {

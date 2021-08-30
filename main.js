@@ -26,12 +26,12 @@ function CPUselectRandomOption() {
 
 function playerOneAttackCPU() {
   const regexOption = /\d+/g; // to select only numbers
-  let currentRivalLifeDirty = lifeBarsArray[1].style.width; // cojo el valor
-  let currentRivalLifeClean = currentRivalLifeDirty.match(regexOption); // currentLifeClean = ["100"]
-  let currentRivalLifeCleanAndTypeNumber = parseInt(currentRivalLifeClean);
-  console.log('rival life clean: ', currentRivalLifeCleanAndTypeNumber); // 75 (number type)
+  let currentCPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
+  let currentCPUlifeClean = currentCPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
+  let currentCPUlifeCleanAndTypeNumber = parseInt(currentCPUlifeClean);
+  console.log('CPU life clean: ', currentCPUlifeCleanAndTypeNumber); // 75 (number type)
   const attackDamage = 35;
-  let modifiedLifeTypeNumber = currentRivalLifeCleanAndTypeNumber - attackDamage; // cambio el valor
+  let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber - attackDamage; // cambio el valor
   console.log(modifiedLifeTypeNumber);
 
   let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
@@ -46,19 +46,19 @@ function playerOneAttackCPU() {
     setTimeout(function cpuTurnDecision(){
       // After waiting for 3 seconds, call the function below.
       console.log("from attack");
-      cpuSelectRandomOption();
+      CPUselectRandomOption();
     }, 0500);
   }  
 }
 
 function playerOneSpellCPU() {
   const regexOption = /\d+/g; // to select only numbers
-  let currentRivalLifeDirty = lifeBarsArray[1].style.width; // cojo el valor
-  let currentRivalLifeClean = currentRivalLifeDirty.match(regexOption); // currentLifeClean = ["100"]
-  let currentRivalLifeCleanAndTypeNumber = parseInt(currentRivalLifeClean);
-  console.log('rival life clean: ', currentRivalLifeCleanAndTypeNumber); // 75 (number type)
+  let currentCPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
+  let currentCPUlifeClean = currentCPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
+  let currentCPUlifeCleanAndTypeNumber = parseInt(currentCPUlifeClean);
+  console.log('CPU life clean: ', currentCPUlifeCleanAndTypeNumber); // 75 (number type)
   const spellDamage = 25;
-  let modifiedLifeTypeNumber = currentRivalLifeCleanAndTypeNumber - spellDamage; // cambio el valor
+  let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber - spellDamage; // cambio el valor
   console.log(modifiedLifeTypeNumber);
 
   let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
@@ -73,7 +73,7 @@ function playerOneSpellCPU() {
     setTimeout(function cpuTurnDecision(){
       // After waiting for 3 seconds, call the function below.
       console.log("from spell");
-      cpuSelectRandomOption();
+      CPUselectRandomOption();
     }, 3000);
   }  
 }
@@ -96,17 +96,10 @@ function playerOneEatPizza() {
   setTimeout(function cpuTurnDecision(){
     // After waiting for 3 seconds, call the function below.
     console.log("from pizza");
-    cpuSelectRandomOption();
+    CPUselectRandomOption();
   }, 3000);  
 }
-function cpuSelectRandomOption() {
-  console.log('cpu is ON!!!');
-  const cpuButtonsArray = Object.values(buttonsArray).filter( (buttons, index) => {
-    return index > 2;
-  })
-  console.log(cpuButtonsArray);
-  const item = cpuButtonsArray[Math.floor(Math.random()*cpuButtonsArray.length)];
-  console.log("random button: ", item);
+
 function CPUattackPlayerOne() {
   const regexOption = /\d+/g; // to select only numbers
   let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor

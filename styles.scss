@@ -72,6 +72,41 @@ body {
   }
 
   &__player2 {
-    background-color: yellow;
+    background-color: transparent;
+
+    &-buttons {
+      
+      &--attack {
+        display: none;
+        margin-bottom: 3px;
+      }
+
+      &--spell {
+        display: none;
+        margin-bottom: 3px;
+      }
+      
+      &--pizza {
+        display: none;
+        margin-bottom: 8px;
+      }      
+    }
+
+    &-gif {
+      margin-top: auto;
+      height: auto;
+      width: auto;
+      background-color: transparent;
+
+        &--frame {
+          border: 5px solid red;
+          border-radius: 5px;
+        }
+    }
+
+    &--lifebar-row {
+      width: 100%;
+      margin-top: 5px;
+    }
   }  
 }

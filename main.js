@@ -74,13 +74,20 @@ function playerOneSpellCPU() {
     lifeBarsArray[1].style.width = "0%";
     alert("KO!");
   } else {
+    const cpuMainGiff = document.querySelector("#cpuMainGiff");
+    cpuMainGiff.classList.add("remove-from-screen");
+
+    const cpuRandomGiff = document.getElementsByTagName("img");
+    cpuRandomGiff[0].classList.remove("remove-from-screen");
+    grab_data("funny animals");
+
     lifeBarsArray[1].style.width = readyToApplyLife;
     logPannel.innerText = "Player 1 Spells on rival giff ✨! Takes 20 life points . . . ."
     setTimeout(function cpuTurnDecision() {
       // After waiting for 3 seconds, call the function below.
       console.log("from spell");
       CPUselectRandomOption();
-    }, 3000);
+    }, 1500);
   }  
 }
 

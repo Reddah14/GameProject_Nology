@@ -34,7 +34,7 @@ function playerOneAttackCPU() {
   let currentCPUlifeClean = currentCPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let currentCPUlifeCleanAndTypeNumber = parseInt(currentCPUlifeClean);
   console.log('CPU life clean: ', currentCPUlifeCleanAndTypeNumber); // 75 (number type)
-  const attackDamage = 35;
+  const attackDamage = 30;
   let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber - attackDamage; // cambio el valor
   console.log(modifiedLifeTypeNumber);
 
@@ -62,7 +62,7 @@ function playerOneSpellCPU() {
   let currentCPUlifeClean = currentCPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let currentCPUlifeCleanAndTypeNumber = parseInt(currentCPUlifeClean);
   console.log('CPU life clean: ', currentCPUlifeCleanAndTypeNumber); // 75 (number type)
-  const spellDamage = 25;
+  const spellDamage = 20;
   let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber - spellDamage; // cambio el valor
   console.log(modifiedLifeTypeNumber);
 
@@ -90,7 +90,7 @@ function playerOneEatPizza() {
   let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let currentPlayerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
   console.log('rival life clean: ', currentPlayerOneLifeCleanAndTypeNumber); // 75 (number type)
-  const pizzaHealing = 20;
+  const pizzaHealing = 15;
   let modifiedLifeTypeNumber = currentPlayerOneLifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
   console.log(modifiedLifeTypeNumber);
 
@@ -113,7 +113,7 @@ function CPUattackPlayerOne() {
   let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let playerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
   console.log('rival life clean: ', playerOneLifeCleanAndTypeNumber); // 75 (number type)
-  const attackDamage = 35;
+  const attackDamage = 30;
   let modifiedLifeTypeNumber = playerOneLifeCleanAndTypeNumber - attackDamage; // cambio el valor
   console.log(modifiedLifeTypeNumber);
 
@@ -136,7 +136,7 @@ function CPUspellPlayerOne() {
   let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let playerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
   console.log('rival life clean: ', playerOneLifeCleanAndTypeNumber); // 75 (number type)
-  const spellDamage = 25;
+  const spellDamage = 20;
   let modifiedLifeTypeNumber = playerOneLifeCleanAndTypeNumber - spellDamage; // cambio el valor
   console.log(modifiedLifeTypeNumber);
 
@@ -159,7 +159,7 @@ function CPUeatPizza() {
   let CPUlifeClean = CPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let currentCPUlifeCleanAndTypeNumber = parseInt(CPUlifeClean);
   console.log('rival life clean: ', currentCPUlifeCleanAndTypeNumber); // 75 (number type)
-  const pizzaHealing = 20;
+  const pizzaHealing = 15;
   let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
   console.log(modifiedLifeTypeNumber);
 

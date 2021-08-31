@@ -156,7 +156,16 @@ function CPUspellPlayerOne() {
     alert("KO!");
   } else {
     logPannel.innerText = "CPU Spells on Player 1 !! ✨✨  -20 life points . . . ."
+    const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
+    playerOneMainGiff.classList.add("remove-from-screen");
+
+    const playerOneRandomGiff = document.getElementById("playerOneRandomGiff");
+    playerOneRandomGiff.classList.remove("remove-from-screen");
+    grab_dataForPlayerOneGiff("cat");
+
+
     lifeBarsArray[0].style.width = readyToApplyLife;
+    logPannel.innerText = "CPU Spells on Player 1 !! ✨✨  -20 life points . . . ."
   }
 }
 

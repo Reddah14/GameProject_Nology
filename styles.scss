@@ -34,6 +34,52 @@ body {
     padding: 30px;
     border-radius: 7px;
     background-color: darksalmon;
+
+    &--logPannel {
+      text-align: center;
+      color: rebeccapurple;
+      font-family: monospace;
+      font-size: 20px;
+
+      > span {
+        font-size: 30px;
+        color:black;
+      }
+
+      &-choose-player-btn {
+        display: flex;
+        justify-content: center;
+        max-width: 289px;
+        margin-left: auto;
+        margin-right: auto;
+        color: darkcyan;
+        font-family: monospace;
+        font-size: 19px;
+        font-weight: bolder;
+      }
+
+      &-start-game-btn {
+        display: flex;
+        justify-content: center;
+        max-width: 289px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: monospace;
+        font-size: 19px;
+        font-weight: bolder;
+      }
+      
+      &-restart-game-btn {
+        display: flex;
+        justify-content: center;
+        max-width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+        font-family: monospace;
+        font-size: 19px;
+        font-weight: bolder;
+      }      
+    }
   }
 }
 

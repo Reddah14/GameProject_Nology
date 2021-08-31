@@ -11,6 +11,31 @@ const logPannel = document.getElementsByClassName("header__info--logPannel")[0];
 console.log(logPannel.innerText);
 const mainDiv = document.getElementsByTagName("main");
 const finalGiffSection = document.getElementsByTagName("section");
+function startGame() {
+  startGameButton.classList.add("remove-from-screen");
+  logPannel.innerText = "Fight ! ";
+  mainDiv[0].classList.remove("remove-from-screen");
+  const whoStarts = sessionStorage.getItem('whoStartTheGame');
+  const playerOneButtonsArray = Object.values(buttonsArray).filter( button => {
+    return button.parentElement.className === "row gap-2 d-md-block battlefield__player1-buttons";
+  })
+
+  if ( whoStarts === "cpu" ) {
+    playerOneButtonsArray.forEach(button => {
+      button.classList.add("remove-from-screen");
+    })
+    setTimeout(function cpuTurnDecision() {
+      // After waiting for 3 seconds, call the function below.
+      CPUselectRandomOption();
+    }, 2000);
+
+    setTimeout( () => {
+      playerOneButtonsArray.forEach(button => {
+        button.classList.remove("remove-from-screen");
+      })
+    }, 2500);
+  }
+}
 
 function CPUselectRandomOption() {
   console.log('cpu is ON!!!');

@@ -23,6 +23,8 @@ function CPUselectRandomOption() {
   } else if ( randomButton.value === "pizza" ) {
     console.log("pizza button ON");
     CPUeatPizza();
+  } else if ( randomButton.value === "" ) {
+    console.log("randomButton has no value");
   } else {
     console.log("cpu button not catched");
   }

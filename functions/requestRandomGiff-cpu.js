@@ -26,7 +26,7 @@ function httpGetAsync(theUrl, callback)
 }
 
 // callback for the random search
-function tenorCallback_randomsearch(responsetext)
+function tenorCallback_randomsearchCPU(responsetext)
 {
     // parse the json response
     var response_objects = JSON.parse(responsetext);
@@ -54,7 +54,7 @@ function grab_dataForCPUgiff(search_term)
     var search_url = "https://g.tenor.com/v1/random?q=" + search_term + "&key=" +
             apikey + "&limit=" + lmt;
 
-    httpGetAsync(search_url,tenorCallback_randomsearch);
+    httpGetAsync(search_url,tenorCallback_randomsearchCPU);
 
     // data will be loaded by each call's callback
     return;

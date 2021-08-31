@@ -26,7 +26,7 @@ function httpGetAsync(theUrl, callback)
 }
 
 // callback for the random search
-function tenorCallback_randomsearch(responsetext)
+function tenorCallback_randomsearchEndFight(responsetext)
 {
     // parse the json response
     var response_objects = JSON.parse(responsetext);
@@ -35,13 +35,13 @@ function tenorCallback_randomsearch(responsetext)
 
     // load the GIFs -- for our example we will load the first GIFs preview size (nanogif) and share size (tinygif)
 
-    document.getElementById("cpuRandomGiff").src = top_10_gifs[Math.floor(Math.random() * 10)]["media"][0]["nanogif"]["url"];
+    document.getElementById("finishedCombatGiff").src = top_10_gifs[Math.floor(Math.random() * 10)]["media"][0]["nanogif"]["url"];
 
     return;
 }
 
 // function to request random gifs for a given search term
-function grab_dataForCPUgiff(search_term)
+function grab_dataForEndFightGiff(search_term)
 {
     // set the apikey and limit
     var apikey = "LIVDSRZULELA";
@@ -54,7 +54,7 @@ function grab_dataForCPUgiff(search_term)
     var search_url = "https://g.tenor.com/v1/random?q=" + search_term + "&key=" +
             apikey + "&limit=" + lmt;
 
-    httpGetAsync(search_url,tenorCallback_randomsearch);
+    httpGetAsync(search_url,tenorCallback_randomsearchEndFight);
 
     // data will be loaded by each call's callback
     return;

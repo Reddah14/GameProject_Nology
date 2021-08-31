@@ -25,7 +25,29 @@
   <header class="row header">
     <section class="col-9 header__info">
       <p class="header__info--logPannel">
-        Ready to Ruuuuumble !! 🛡🗡
+        <span>Welcome to Beat Di Giff</span>
+        <hr>
+        <button
+          class="col-12 btn btn-warning header__info--logPannel-choose-player-btn"
+          name="ChoosePlayerToStart"
+        >
+          Click Here to see who starts !
+        </button>
+
+        <button
+          onclick="startGame()"
+          class="col-12 btn btn-success remove-from-screen header__info--logPannel-start-game-btn"
+        >
+          Let's Go
+        </button>
+
+        <button
+          onclick="reStartGame()"
+          name="ChoosePlayerToStart"
+          class="col-12 btn btn-success remove-from-screen header__info--logPannel-restart-game-btn"
+        >
+          Click Here to play again !
+        </button>        
       </p>
     </section>
   </header>

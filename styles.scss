@@ -90,16 +90,22 @@ body {
   margin-top: 10px;
 
   &__player1 {
-    background-color: turquoise;
+    background-color: transparent;
 
     &-buttons {
-      margin-bottom: 10px;
       display: flex;
 
       &--attack {
-        margin-top: 10px;
-        background-color:saddlebrown;
+        margin-bottom: 3px;
       }
+
+      &--spell {
+        margin-bottom: 3px;
+      }
+      
+      &--pizza {
+        margin-bottom: 8px;
+      }      
     }
 
     &--gif {

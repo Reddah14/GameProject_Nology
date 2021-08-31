@@ -114,3 +114,16 @@ body {
 .remove-from-screen {
   display: none;
 }
+.final-giff {
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 350px;
+  width: 400px;
+  
+  &--frame {
+    display: flex;
+    justify-content: center;
+    border: 10px solid green;
+  }
+}

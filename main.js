@@ -190,10 +190,6 @@ function CPUeatPizza() {
 buttonsArray.forEach(button => {
 
   button.addEventListener("click", event => {
-    console.log(event);
-    console.log(typeof event.target.name);
-    /* if attack button is pressed */
-    if ( event.target.name === "attack" ) {
     if ( event.target.name === "ChoosePlayerToStart" ) {
       const randomNumber = Math.floor(Math.random() * 10);
       if ( randomNumber <= 5 ) {
@@ -210,16 +206,17 @@ buttonsArray.forEach(button => {
         startGameButton.classList.remove("remove-from-screen");        
       }
     }
+    /* if attack button is clicked by player 1*/
+    else if ( event.target.name === "attack" ) {
       playerOneAttackCPU();
     }
     /* if spell button is clicked */
-    if ( event.target.name === "spell" ) {
+    else if ( event.target.name === "spell" ) {
       playerOneSpellCPU();
     }
     /* if pizza button is clicked */
-    if ( event.target.name === "pizza" ) {
+    else if ( event.target.name === "pizza" ) {
       playerOneEatPizza();      
     }    
   })
 });
-

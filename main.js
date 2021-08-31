@@ -1,11 +1,16 @@
 alert("Hello")const lifeBarsArray = document.getElementsByClassName("progress-bar");
 console.log(lifeBarsArray);
+const lifeBarsArray = document.getElementsByClassName("progress-bar");
 
 const buttonsArray = document.querySelectorAll("button");
 //console.log(buttonsArray);
 
+const startGameButton = buttonsArray[1];
+const reStartGameButton = buttonsArray[2];
 const logPannel = document.getElementsByClassName("header__info--logPannel")[0];
 console.log(logPannel.innerText);
+const mainDiv = document.getElementsByTagName("main");
+const finalGiffSection = document.getElementsByTagName("section");
 
 function CPUselectRandomOption() {
   console.log('cpu is ON!!!');

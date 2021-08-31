@@ -185,6 +185,22 @@ buttonsArray.forEach(button => {
     console.log(typeof event.target.name);
     /* if attack button is pressed */
     if ( event.target.name === "attack" ) {
+    if ( event.target.name === "ChoosePlayerToStart" ) {
+      const randomNumber = Math.floor(Math.random() * 10);
+      if ( randomNumber <= 5 ) {
+        console.log("p1 starts");
+        sessionStorage.setItem('whoStartTheGame', 'player1');
+        logPannel.innerHTML = "Player 1 Starts !";
+        event.target.classList.add("remove-from-screen");
+        startGameButton.classList.remove("remove-from-screen");
+      } else {
+        console.log("cpu starts");
+        sessionStorage.setItem('whoStartTheGame', 'cpu');
+        logPannel.innerHTML = "CPU Starts !";
+        event.target.classList.add("remove-from-screen");
+        startGameButton.classList.remove("remove-from-screen");        
+      }
+    }
       playerOneAttackCPU();
     }
     /* if spell button is clicked */

@@ -160,10 +160,18 @@ body {
       background-color: transparent;
 
         &--frame {
+          //display: none;
           border: 5px solid red;
           border-radius: 5px;
         }
-    }
+
+        &--replacement {
+          //display: none;
+          width: 120px;
+          height:164px;
+          border: 10px solid yellow;
+        }
+      }
 
     &--lifebar-row {
       width: 100%;

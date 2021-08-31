@@ -44,7 +44,12 @@ function playerOneAttackCPU() {
 
   if ( (lifeBarsArray[1].style.width = readyToApplyLife) <= "0%" ) {
     lifeBarsArray[1].style.width = "0%";
-    alert("KO!");
+    //alert("KO!");
+    logPannel.innerText = "Player 1 Wins ! 🎉🎉🎉";
+    reStartGameButton.classList.remove("remove-from-screen");
+    mainDiv[0].classList.add("remove-from-screen");
+    finalGiffSection[1].classList.remove("remove-from-screen");
+    grab_dataForEndFightGiff("victory");
   } else {
     lifeBarsArray[1].style.width = readyToApplyLife;
     logPannel.innerText = "Player 1 Attacks 🗡🗡🗡 and takes 30 life points . . . ."

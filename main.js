@@ -10,7 +10,7 @@ console.log(logPannel.innerText);
 function CPUselectRandomOption() {
   console.log('cpu is ON!!!');
   const cpuButtonsArray = Object.values(buttonsArray).filter( (button, index) => {
-    return index > 2;
+    return index > 4;
   })
   const randomButton = cpuButtonsArray[Math.floor(Math.random()*cpuButtonsArray.length)];
 

@@ -11,6 +11,11 @@ const logPannel = document.getElementsByClassName("header__info--logPannel")[0];
 console.log(logPannel.innerText);
 const mainDiv = document.getElementsByTagName("main");
 const finalGiffSection = document.getElementsByTagName("section");
+let turnCounterPlayerOne = 0;
+let turnCounterCPU = 0;
+let attackDamage = 30;
+let untilWhatTurnIsCPUspell = 0;
+let untilWhatTurnIsPlayerOnespell = 0;
 function reStartGame() {
   finalGiffSection[1].classList.add("remove-from-screen");
   buttonsArray[0].classList.remove("remove-from-screen");

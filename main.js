@@ -138,6 +138,10 @@ function playerOneAttackCPU() {
 }
 
 function playerOneSpellCPU() {
+  turnCounterPlayerOne++;
+  let playerOneSpellCPUuntilTurn = turnCounterPlayerOne + 2;
+  sessionStorage.setItem('playerOneSpellCPUuntilTurn', playerOneSpellCPUuntilTurn);
+  sessionStorage.setItem('isCPUspell', true);
   const regexOption = /\d+/g; // to select only numbers
   let currentCPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
   let currentCPUlifeClean = currentCPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]

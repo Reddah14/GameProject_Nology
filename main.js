@@ -260,6 +260,11 @@ function CPUattackPlayerOne() {
 }
 
 function CPUspellPlayerOne() {
+  turnCounterCPU++;
+  let CPUSpellPlayerOneuntilTurn = turnCounterCPU + 2;
+  sessionStorage.setItem('CPUSpellPlayerOneuntilTurn', CPUSpellPlayerOneuntilTurn);
+  sessionStorage.setItem('isPlayerOnespell', true);  
+
   const regexOption = /\d+/g; // to select only numbers
   let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
   let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
@@ -275,7 +280,16 @@ function CPUspellPlayerOne() {
 
   if ( (lifeBarsArray[0].style.width = readyToApplyLife) <= "0%" ) {
     lifeBarsArray[0].style.width = "0%";
-    alert("KO!");
+    //alert("KO!");
+
+    setTimeout( cpuTurnDecision = () => {
+      // After waiting for 3 seconds, call the function below.
+      logPannel.innerText = "CPU Wins ! 👾🤖👾";
+      reStartGameButton.classList.remove("remove-from-screen");
+      mainDiv[0].classList.add("remove-from-screen");
+      finalGiffSection[1].classList.remove("remove-from-screen");
+      grab_dataForEndFightGiff("loser");
+    }, 1500);     
   } else {
     logPannel.innerText = "CPU Spells on Player 1 !! ✨✨  -20 life points . . . ."
     const playerOneMainGiff = document.querySelector("#playerOneMainGiff");

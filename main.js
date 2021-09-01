@@ -16,6 +16,18 @@ function reStartGame() {
   buttonsArray[0].classList.remove("remove-from-screen");
   buttonsArray[1].classList.add("remove-from-screen");
   buttonsArray[2].classList.add("remove-from-screen");
+  logPannel.innerText = "Another Round ?"
+
+/* reset cpu giff when finish battle */
+  const cpuMainGiff = document.querySelector("#cpuMainGiff");
+  cpuMainGiff.classList.remove("remove-from-screen");
+  const cpuRandomGiff = document.getElementById("cpuRandomGiff");
+  cpuRandomGiff.classList.add("remove-from-screen");
+/* reset player1 giff when finish battle */
+  const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
+  playerOneMainGiff.classList.remove("remove-from-screen");
+  const playerOneRandomGiff = document.getElementById("playerOneRandomGiff");
+  playerOneRandomGiff.classList.add("remove-from-screen");
 }
 function startGame() {
   startGameButton.classList.add("remove-from-screen");

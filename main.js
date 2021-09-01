@@ -118,23 +118,27 @@ function playerOneAttackCPU() {
     mainDiv[0].classList.add("remove-from-screen");
     finalGiffSection[1].classList.remove("remove-from-screen");
     grab_dataForEndFightGiff("victory");
+
     setTimeout( cpuTurnDecision = () => {
       // After waiting for 3 seconds, call the function below.
       logPannel.innerText = "Player 1 Wins ! 🎉🎉🎉";
       reStartGameButton.classList.remove("remove-from-screen");
       mainDiv[0].classList.add("remove-from-screen");
       finalGiffSection[1].classList.remove("remove-from-screen");
-      grab_dataForEndFightGiff("victory");
+      grab_dataForEndFightGiff("winner");
     }, 1500);
+
+
+
   } else {
     lifeBarsArray[1].style.width = readyToApplyLife;
-    logPannel.innerText = "Player 1 Attacks 🗡🗡🗡 and takes 30 life points . . . ."
-    setTimeout(function cpuTurnDecision() {
+    logPannel.innerText = `Player 1 Attacks 🗡🗡🗡 and takes ${attackDamage} life points . . . .`;
+    setTimeout( cpuTurnDecision = () => {
       // After waiting for 3 seconds, call the function below.
       console.log("from attack");
       CPUselectRandomOption();
-    }, 0500);
-  }  
+    }, 1500);
+  }
 }
 
 function playerOneSpellCPU() {

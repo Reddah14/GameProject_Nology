@@ -215,12 +215,24 @@ function playerOneEatPizza() {
 }
 
 function CPUattackPlayerOne() {
+  turnCounterCPU++;
+
+
   const regexOption = /\d+/g; // to select only numbers
   let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
   let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let playerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
   console.log('rival life clean: ', playerOneLifeCleanAndTypeNumber); // 75 (number type)
-  const attackDamage = 30;
+  
+  const isCPUunderSpell = sessionStorage.getItem("isCPUspell");
+  if (isCPUunderSpell) {
+    untilWhatTurnIsCPUspell = sessionStorage.getItem("playerOneSpellCPUuntilTurn");
+  }
+  if (isCPUunderSpell === "true" && turnCounterCPU <= untilWhatTurnIsCPUspell) {
+    attackDamage = 15;
+  } else {
+    attackDamage = 30;
+  }
   let modifiedLifeTypeNumber = playerOneLifeCleanAndTypeNumber - attackDamage; // cambio el valor
   console.log(modifiedLifeTypeNumber);
 

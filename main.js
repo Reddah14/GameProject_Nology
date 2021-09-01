@@ -30,6 +30,8 @@ function reStartGame() {
   playerOneRandomGiff.classList.add("remove-from-screen");
 }
 function startGame() {
+  lifeBarsArray[0].style.width = "100%";
+  lifeBarsArray[1].style.width = "100%";
   startGameButton.classList.add("remove-from-screen");
   logPannel.innerText = "Fight ! ";
   mainDiv[0].classList.remove("remove-from-screen");

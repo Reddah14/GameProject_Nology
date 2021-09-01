@@ -177,6 +177,8 @@ function playerOneSpellCPU() {
 }
 
 function playerOneEatPizza() {
+  turnCounterPlayerOne++;
+  sessionStorage.setItem('isPlayerOnespell', false);  
   const regexOption = /\d+/g; // to select only numbers
   let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
   let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]

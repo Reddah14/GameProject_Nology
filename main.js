@@ -86,12 +86,23 @@ function CPUselectRandomOption() {
 }
 
 function playerOneAttackCPU() {
+  turnCounterPlayerOne++;
+
   const regexOption = /\d+/g; // to select only numbers
   let currentCPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
   let currentCPUlifeClean = currentCPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let currentCPUlifeCleanAndTypeNumber = parseInt(currentCPUlifeClean);
   console.log('CPU life clean: ', currentCPUlifeCleanAndTypeNumber); // 75 (number type)
-  const attackDamage = 30;
+  
+  const isPlayerOneunderSpell = sessionStorage.getItem("isPlayerOnespell");
+  if (isPlayerOneunderSpell) {
+    untilWhatTurnIsPlayerOnespell = sessionStorage.getItem("CPUSpellPlayerOneuntilTurn");
+  }
+  if (isPlayerOneunderSpell === "true" && turnCounterPlayerOne <= untilWhatTurnIsPlayerOnespell) {
+    attackDamage = 15;
+  } else {
+    attackDamage = 30;
+  } 
   let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber - attackDamage; // cambio el valor
   console.log(modifiedLifeTypeNumber);
 

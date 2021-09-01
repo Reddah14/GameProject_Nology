@@ -306,12 +306,20 @@ function CPUspellPlayerOne() {
 }
 
 function CPUeatPizza() {
+  turnCounterCPU++;
+  sessionStorage.setItem('isCPUspell', false);
+
   const regexOption = /\d+/g; // to select only numbers
   let CPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
   let CPUlifeClean = CPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let currentCPUlifeCleanAndTypeNumber = parseInt(CPUlifeClean);
   console.log('rival life clean: ', currentCPUlifeCleanAndTypeNumber); // 75 (number type)
   const pizzaHealing = 15;
+  if ( currentCPUlifeCleanAndTypeNumber === 100 ) {
+    CPUselectRandomOption();
+
+    return;
+  }
   let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
   console.log(modifiedLifeTypeNumber);
 

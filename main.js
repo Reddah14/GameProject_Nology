@@ -11,6 +11,12 @@ const logPannel = document.getElementsByClassName("header__info--logPannel")[0];
 console.log(logPannel.innerText);
 const mainDiv = document.getElementsByTagName("main");
 const finalGiffSection = document.getElementsByTagName("section");
+function reStartGame() {
+  finalGiffSection[1].classList.add("remove-from-screen");
+  buttonsArray[0].classList.remove("remove-from-screen");
+  buttonsArray[1].classList.add("remove-from-screen");
+  buttonsArray[2].classList.add("remove-from-screen");
+}
 function startGame() {
   startGameButton.classList.add("remove-from-screen");
   logPannel.innerText = "Fight ! ";

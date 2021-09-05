@@ -69,24 +69,19 @@ function startGame() {
 
 function CPUselectRandomOption() {
   console.log('cpu is ON!!!');
-  const cpuButtonsArray = Object.values(buttonsArray).filter( (button, index) => {
-    return index > 5;
-  })
-  const randomButton = cpuButtonsArray[Math.floor(Math.random()*cpuButtonsArray.length)];
+  
+  const randomNumber = Math.floor(Math.random() * 8);
+  console.log(randomNumber);
 
-  if ( randomButton.value === "attack" ) {
+  if ( randomNumber <= 2 ) {
     console.log("attack button ON");
     CPUattackPlayerOne();
-  } else if ( randomButton.value === "spell" ) {
+  } else if ( randomNumber > 2 && randomNumber <= 5 ) {
     console.log("spell button ON");
     CPUspellPlayerOne();
-  } else if ( randomButton.value === "pizza" ) {
+  } else if ( randomNumber > 5 ) {
     console.log("pizza button ON");
     CPUeatPizza();
-  } else if ( randomButton.value === "" ) {
-    console.log("randomButton has no value");
-  } else {
-    console.log("cpu button not catched");
   }
 }
 

@@ -15,6 +15,27 @@ let untilWhatTurnIsPlayerOnespell = 0;
 
 //TODO: fix loggin pannel when attacking under spell (should say 15 damage not 30)
 
+const choosingWhoStartsFirst = (randomNumberParam, buttonParam) => {
+  if ( randomNumberParam <= 5 ) {
+    sessionStorage.setItem("whoStartTheGame", "player1");
+    printAtLogPannel("Player 1 Starts !");
+    buttonParam.classList.add("remove-from-screen");
+    startGameButton.classList.remove("remove-from-screen");
+  } else {
+    sessionStorage.setItem("whoStartTheGame", "cpu");
+    printAtLogPannel("CPU Starts !");
+    event.target.classList.add("remove-from-screen");
+    startGameButton.classList.remove("remove-from-screen");
+  }  
+}
+
+const cleaningLifearStringAndTurningIntoTypeNumber = (indexOfLifeBarParam) => {
+  let lifebarDirtyAndString = lifeBarsArray[indexOfLifeBarParam].style.width;
+  let lifebarCleanAndTypeString = lifebarDirtyAndString.match(regexOptionForOnlyNumbers);
+  let lifebarCleanAndTypeNumber = parseInt(lifebarCleanAndTypeString);
+
+  return lifebarCleanAndTypeNumber;
+}
 const modifyLifebarPointsOfPlayerOne = (typeOfAttackParam, pointsToModifyParam) => {
 //TODO: switch case refactor ?
 

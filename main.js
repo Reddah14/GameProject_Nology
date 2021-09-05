@@ -34,6 +34,13 @@ const removingPlayerOneButtons = () => {
     button.classList.add("remove-from-screen");
   })
 }
+
+const resettingLifesToHundredPoints = () => {
+  lifeBarsArray[0].style.width = "100%";
+  lifeBarsArray[1].style.width = "100%";
+
+  return;
+}
 const removingSessionStorageSpellItems = () => {
   sessionStorage.removeItem("isPlayerOnespell");
   sessionStorage.removeItem("playerOneSpellCPUuntilTurn");
@@ -92,9 +99,8 @@ const reStartGame = () => {
 };
 const startGame = () => {
   removingSessionStorageSpellItems();
+  resettingLifesToHundredPoints();
 
-  lifeBarsArray[0].style.width = "100%";
-  lifeBarsArray[1].style.width = "100%";
   startGameButton.classList.add("remove-from-screen");
   logPannel.innerText = "Fight ! ";
   mainDiv[0].classList.remove("remove-from-screen");

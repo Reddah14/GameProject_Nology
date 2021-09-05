@@ -331,36 +331,14 @@ const CPUattackPlayerOne = () => {
 
 const CPUspellPlayerOne = () => {
   turnCounterCPU++;
+
   let CPUSpellPlayerOneuntilTurn = turnCounterCPU + 2;
   sessionStorage.setItem("CPUSpellPlayerOneuntilTurn", CPUSpellPlayerOneuntilTurn);
   sessionStorage.setItem("isPlayerOnespell", "true");  
 
-  let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
-  let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
-  let playerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
-  const spellDamage = 20;
-  let modifiedLifeTypeNumber = playerOneLifeCleanAndTypeNumber - spellDamage; // cambio el valor
+  modifyLifebarPointsOfPlayerOne("spell", 20);
 
-  let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
-  let readyToApplyLife = modifiedFormattedLife + "%";
-
-  if ( (lifeBarsArray[0].style.width = readyToApplyLife) <= "0%" ) {
-    lifeBarsArray[0].style.width = "0%";
-
-    setTimeout( () => {
-      printAtLogginPannel("CPU Wins ! 👾🤖👾");
-      reStartGameButton.classList.remove("remove-from-screen");
-      mainDiv[0].classList.add("remove-from-screen");
-      finalGiffSection[1].classList.remove("remove-from-screen");
-      grab_dataForEndFightGiff("loser");
-    }, 1500);
-  } else {
-    displayingPlayerOneRandomGiff();
-    grab_dataForPlayerOneGiff("cat");
-
-    lifeBarsArray[0].style.width = readyToApplyLife;
-    printAtLogginPannel("CPU Spells on Player 1 !! ✨✨  -20 life points . . . .");
-  }
+  return;
 }
 
 const CPUeatPizza = () => {

@@ -135,7 +135,7 @@ function playerOneAttackCPU() {
       // After waiting for 3 seconds, call the function below.
       console.log("from attack");
       CPUselectRandomOption();
-    }, 1500);
+    }, 3000);
   }
 }
 
@@ -179,12 +179,12 @@ function playerOneSpellCPU() {
     grab_dataForCPUgiff("dog funny");
 
     lifeBarsArray[1].style.width = readyToApplyLife;
-    logPannel.innerText = "Player 1 Spells on rival giff ✨! Takes 20 life points . . . ."
+    logPannel.innerText = "Player 1 Spells✨ on rival giff for 2 more turns ! And takes 20 life points . . . .";
     setTimeout(function cpuTurnDecision() {
       // After waiting for 3 seconds, call the function below.
       console.log("from spell");
       CPUselectRandomOption();
-    }, 1500);
+    }, 3000);
   }  
 }
 
@@ -262,11 +262,8 @@ function CPUattackPlayerOne() {
 
   if ( (lifeBarsArray[0].style.width = readyToApplyLife) <= "0%" ) {
     lifeBarsArray[0].style.width = "0%";
-    alert("KO!");
-    //alert("KO!");
 
-    setTimeout( cpuTurnDecision = () => {
-      // After waiting for 3 seconds, call the function below.
+    setTimeout( cpuBeatsPlayerOne = () => {
       logPannel.innerText = "CPU Wins ! 👾🤖👾";
       reStartGameButton.classList.remove("remove-from-screen");
       mainDiv[0].classList.add("remove-from-screen");
@@ -300,18 +297,16 @@ function CPUspellPlayerOne() {
 
   if ( (lifeBarsArray[0].style.width = readyToApplyLife) <= "0%" ) {
     lifeBarsArray[0].style.width = "0%";
-    //alert("KO!");
 
-    setTimeout( cpuTurnDecision = () => {
+    setTimeout( cpuBeatsPlayerOne = () => {
       // After waiting for 3 seconds, call the function below.
       logPannel.innerText = "CPU Wins ! 👾🤖👾";
       reStartGameButton.classList.remove("remove-from-screen");
       mainDiv[0].classList.add("remove-from-screen");
       finalGiffSection[1].classList.remove("remove-from-screen");
       grab_dataForEndFightGiff("loser");
-    }, 1500);     
+    }, 1500);
   } else {
-    logPannel.innerText = "CPU Spells on Player 1 !! ✨✨  -20 life points . . . ."
     const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
     playerOneMainGiff.classList.add("remove-from-screen");
 

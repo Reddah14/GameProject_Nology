@@ -181,7 +181,7 @@ function playerOneSpellCPU() {
 
     const cpuRandomGiff = document.getElementById("cpuRandomGiff");
     cpuRandomGiff.classList.remove("remove-from-screen");
-    grab_dataForCPUgiff("dog");
+    grab_dataForCPUgiff("dog funny");
 
     lifeBarsArray[1].style.width = readyToApplyLife;
     logPannel.innerText = "Player 1 Spells on rival giff ✨! Takes 20 life points . . . ."

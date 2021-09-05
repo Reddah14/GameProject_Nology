@@ -198,11 +198,7 @@ const playerOneSpellCPU = () => {
       grab_dataForEndFightGiff("winner");
     }, 1500);    
   } else {
-    const cpuMainGiff = document.querySelector("#cpuMainGiff");
-    cpuMainGiff.classList.add("remove-from-screen");
-
-    const cpuRandomGiff = document.getElementById("cpuRandomGiff");
-    cpuRandomGiff.classList.remove("remove-from-screen");
+    displayingCpuRandomGiff();
     grab_dataForCPUgiff("dog funny");
 
     lifeBarsArray[1].style.width = readyToApplyLife;
@@ -228,11 +224,7 @@ const playerOneEatPizza = () => {
 
     return;
   }
-  
-  const playerOneRandomGiff = document.getElementById("playerOneRandomGiff");
-  playerOneRandomGiff.classList.add("remove-from-screen");
-  const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
-  playerOneMainGiff.classList.remove("remove-from-screen");
+  displayingPlayerOneMainGiff();
 
   const regexOption = /\d+/g; // to select only numbers
   let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
@@ -333,11 +325,7 @@ const CPUspellPlayerOne = () => {
       grab_dataForEndFightGiff("loser");
     }, 1500);
   } else {
-    const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
-    playerOneMainGiff.classList.add("remove-from-screen");
-
-    const playerOneRandomGiff = document.getElementById("playerOneRandomGiff");
-    playerOneRandomGiff.classList.remove("remove-from-screen");
+    displayingPlayerOneRandomGiff();
     grab_dataForPlayerOneGiff("cat");
 
 
@@ -355,12 +343,7 @@ const CPUeatPizza = () => {
     
     return;
   }
-  
-  const cpuRandomGiff = document.getElementById("cpuRandomGiff");
-  cpuRandomGiff.classList.add("remove-from-screen");  
-
-  const cpuMainGiff = document.querySelector("#cpuMainGiff");
-  cpuMainGiff.classList.remove("remove-from-screen");
+  displayingCpuMainGiff();
 
   const regexOption = /\d+/g; // to select only numbers
   let CPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor

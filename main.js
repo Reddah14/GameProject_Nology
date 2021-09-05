@@ -195,7 +195,23 @@ function playerOneSpellCPU() {
 
 function playerOneEatPizza() {
   turnCounterPlayerOne++;
-  sessionStorage.setItem('isPlayerOnespell', false);  
+  
+  if ( lifeBarsArray[0].style.width === "100%" || lifeBarsArray[0].style.width > "50%" ) {
+    logPannel.innerText = "Player 1 tries to eat pizza ... but still waiting for delivery and loses turn !! 🎃🎃🎃";
+    
+    setTimeout(function cpuTurnDecision() {
+      console.log('p1 cant eat pizza & lose turn');
+      CPUselectRandomOption();
+    }, 1500);
+
+    return;
+  }
+  
+  const playerOneRandomGiff = document.getElementById("playerOneRandomGiff");
+  playerOneRandomGiff.classList.add("remove-from-screen");
+  const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
+  playerOneMainGiff.classList.remove("remove-from-screen");
+
   const regexOption = /\d+/g; // to select only numbers
   let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
   let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]

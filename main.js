@@ -225,46 +225,7 @@ const CPUselectRandomOption = () => {
 
 const playerOneAttackCPU = () => {
   turnCounterPlayerOne++;
-
-  const regexOption = /\d+/g; // to select only numbers
-  let currentCPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
-  let currentCPUlifeClean = currentCPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
-  let currentCPUlifeCleanAndTypeNumber = parseInt(currentCPUlifeClean);
-  
-  const isPlayerOneunderSpell = sessionStorage.getItem("isPlayerOnespell");
-  if (isPlayerOneunderSpell) {
-    untilWhatTurnIsPlayerOnespell = sessionStorage.getItem("CPUSpellPlayerOneuntilTurn");
-  }
-  if ( isPlayerOneunderSpell === "true" && turnCounterPlayerOne <= untilWhatTurnIsPlayerOnespell ) {
-    attackDamage = 15;
-  } else {
-    attackDamage = 30;
-  } 
-  let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber - attackDamage; // cambio el valor
-  
-
-  let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
-  let readyToApplyLife = modifiedFormattedLife + "%";
-
-
-  if ( (lifeBarsArray[1].style.width = readyToApplyLife) <= "0%" ) {
-    lifeBarsArray[1].style.width = "0%";
-
-    setTimeout( cpuTurnDecision = () => {
-      printAtLogginPannel("Player 1 Wins ! 🎉🎉🎉");
-      reStartGameButton.classList.remove("remove-from-screen");
-      mainDiv[0].classList.add("remove-from-screen");
-      finalGiffSection[1].classList.remove("remove-from-screen");
-      grab_dataForEndFightGiff("winner");
-    }, 1500);
-
-  } else {
-    lifeBarsArray[1].style.width = readyToApplyLife;
-    printAtLogginPannel(`Player 1 Attacks 🗡🗡🗡 and takes ${attackDamage} life points . . . .`);
-    setTimeout( () => {
-      CPUselectRandomOption();
-    }, 3000);
-  }
+  modifyLifebarPointsOfCpu("attack", 30);
 }
 
 const playerOneSpellCPU = () => {

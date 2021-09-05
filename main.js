@@ -318,6 +318,12 @@ function CPUeatPizza() {
     
     return;
   }
+  
+  const cpuRandomGiff = document.getElementById("cpuRandomGiff");
+  cpuRandomGiff.classList.add("remove-from-screen");  
+
+  const cpuMainGiff = document.querySelector("#cpuMainGiff");
+  cpuMainGiff.classList.remove("remove-from-screen");
 
   const regexOption = /\d+/g; // to select only numbers
   let CPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor

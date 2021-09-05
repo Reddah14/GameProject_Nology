@@ -360,7 +360,6 @@ const CPUattackPlayerOne = () => {
 
 const CPUspellPlayerOne = () => {
   turnCounterCPU++;
-
   let CPUSpellPlayerOneuntilTurn = turnCounterCPU + 2;
   sessionStorage.setItem("CPUSpellPlayerOneuntilTurn", CPUSpellPlayerOneuntilTurn);
   sessionStorage.setItem("isPlayerOnespell", "true");  
@@ -382,18 +381,9 @@ buttonsArray.forEach( button => {
 
   button.addEventListener( "click", event => {
     if ( event.target.name === "ChoosePlayerToStart" ) {
+      const ChoosePlayerToStartBtn = event.target;
       const randomNumber = Math.floor(Math.random() * 10);
-      if ( randomNumber <= 5 ) {
-        sessionStorage.setItem("whoStartTheGame", "player1");
-        printAtLogPannel("Player 1 Starts !");
-        event.target.classList.add("remove-from-screen");
-        startGameButton.classList.remove("remove-from-screen");
-      } else {
-        sessionStorage.setItem("whoStartTheGame", "cpu");
-        printAtLogPannel("CPU Starts !");
-        event.target.classList.add("remove-from-screen");
-        startGameButton.classList.remove("remove-from-screen");
-      }
+      choosingWhoStartsFirst(randomNumber, ChoosePlayerToStartBtn);
     }
     else if ( event.target.name === "attack" ) {
       playerOneAttackCPU();

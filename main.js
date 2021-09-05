@@ -142,7 +142,7 @@ const playerOneAttackCPU = () => {
   if (isPlayerOneunderSpell) {
     untilWhatTurnIsPlayerOnespell = sessionStorage.getItem("CPUSpellPlayerOneuntilTurn");
   }
-  if (isPlayerOneunderSpell === "true" && turnCounterPlayerOne <= untilWhatTurnIsPlayerOnespell) {
+  if ( isPlayerOneunderSpell === "true" && turnCounterPlayerOne <= untilWhatTurnIsPlayerOnespell ) {
     attackDamage = 15;
   } else {
     attackDamage = 30;
@@ -223,8 +223,7 @@ const playerOneEatPizza = () => {
   if ( lifeBarsArray[0].style.width === "100%" || lifeBarsArray[0].style.width > "50%" ) {
     printAtLogginPannel("Player 1 tries to eat pizza ... but still waiting for delivery and loses turn !! 🎃🎃🎃");
     
-    setTimeout(function cpuTurnDecision() {
-      console.log('p1 cant eat pizza & lose turn');
+    setTimeout( () => {
       CPUselectRandomOption();
     }, 1500);
 
@@ -249,9 +248,7 @@ const playerOneEatPizza = () => {
     printAtLogginPannel("Player 1 eats a slice of pizza 🍕 ! Recovers 15 life points . .");
   }
   lifeBarsArray[0].style.width = readyToApplyLife;
-  setTimeout(function cpuTurnDecision() {
-    // After waiting for 3 seconds, call the function below.
-    console.log("from pizza");
+  setTimeout( () => {
     CPUselectRandomOption();
   }, 3000);  
 }

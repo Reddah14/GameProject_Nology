@@ -36,6 +36,7 @@ const cleaningLifearStringAndTurningIntoTypeNumber = (indexOfLifeBarParam) => {
 
   return lifebarCleanAndTypeNumber;
 }
+
 const modifyLifebarPointsOfPlayerOne = (typeOfAttackParam, pointsToModifyParam) => {
 //TODO: switch case refactor ?
 
@@ -47,11 +48,8 @@ const modifyLifebarPointsOfPlayerOne = (typeOfAttackParam, pointsToModifyParam) 
       return;
     }
     displayingCpuMainGiff();
-
-    let CPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
-    let CPUlifeClean = CPUlifeDirty.match(regexOptionForOnlyNumbers); // currentLifeClean = ["100"]
-    let currentCPUlifeCleanAndTypeNumber = parseInt(CPUlifeClean);
-    let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
+    let currentCPUlifeCleanAndTypeNumber = cleaningLifearStringAndTurningIntoTypeNumber(1);
+    let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber + pizzaHealing;
     let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
     let readyToApplyLife = modifiedFormattedLife + "%";    
     lifeBarsArray[1].style.width = readyToApplyLife;  
@@ -65,12 +63,8 @@ const modifyLifebarPointsOfPlayerOne = (typeOfAttackParam, pointsToModifyParam) 
 
     return;
   }
-
-  let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
-    let playerOneLifeClean = playerOneLifeDirty.match(regexOptionForOnlyNumbers); // currentLifeClean = ["100"]
-    let playerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
-    
-    const isCPUunderSpell = sessionStorage.getItem("isCPUspell");
+  let playerOneLifeCleanAndTypeNumber = cleaningLifearStringAndTurningIntoTypeNumber(0);
+  const isCPUunderSpell = sessionStorage.getItem("isCPUspell");
   if (isCPUunderSpell) {
     untilWhatTurnIsCPUspell = sessionStorage.getItem("playerOneSpellCPUuntilTurn");
   }
@@ -86,8 +80,7 @@ const modifyLifebarPointsOfPlayerOne = (typeOfAttackParam, pointsToModifyParam) 
     console.error("Can't read the type of attack in order to modify lifebar !");
   }
 
-  let modifiedLifeTypeNumber = playerOneLifeCleanAndTypeNumber - pointsToModifyParam; // cambio el valor
-
+  let modifiedLifeTypeNumber = playerOneLifeCleanAndTypeNumber - pointsToModifyParam;
   let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
   let readyToApplyLife = modifiedFormattedLife + "%";
 
@@ -131,11 +124,9 @@ const modifyLifebarPointsOfCpu = (typeOfAttackParam, pointsToModifyParam) => {
   
       return;
     }
-    displayingPlayerOneMainGiff();
 
-    let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
-    let playerOneLifeClean = playerOneLifeDirty.match(regexOptionForOnlyNumbers); // currentLifeClean = ["100"]
-    let currentPlayerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
+    displayingPlayerOneMainGiff();
+    let currentPlayerOneLifeCleanAndTypeNumber = cleaningLifearStringAndTurningIntoTypeNumber(0);
     let modifiedLifeTypeNumber = currentPlayerOneLifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
     let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
     let readyToApplyLife = modifiedFormattedLife + "%";    
@@ -154,14 +145,12 @@ const modifyLifebarPointsOfCpu = (typeOfAttackParam, pointsToModifyParam) => {
     return;
   }
 
-  let currentCPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
-  let currentCPUlifeClean = currentCPUlifeDirty.match(regexOptionForOnlyNumbers); // currentLifeClean = ["100"]
-  let currentCPUlifeCleanAndTypeNumber = parseInt(currentCPUlifeClean);
-
+  let currentCPUlifeCleanAndTypeNumber = cleaningLifearStringAndTurningIntoTypeNumber(1);
   const isPlayerOneunderSpell = sessionStorage.getItem("isPlayerOnespell");
   if (isPlayerOneunderSpell) {
     untilWhatTurnIsPlayerOnespell = sessionStorage.getItem("CPUSpellPlayerOneuntilTurn");
   }
+
   if ( typeOfAttackParam === "attack" ) {
     if ( isPlayerOneunderSpell === "true" && turnCounterPlayerOne <= untilWhatTurnIsPlayerOnespell ) {
       pointsToModifyParam = 15;
@@ -174,22 +163,19 @@ const modifyLifebarPointsOfCpu = (typeOfAttackParam, pointsToModifyParam) => {
     console.error("Can't read the type of attack in order to modify lifebar !");
   }
 
-  let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber - pointsToModifyParam; // cambio el valor
-  
+  let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber - pointsToModifyParam;
   let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
   let readyToApplyLife = modifiedFormattedLife + "%";
 
   if ( (lifeBarsArray[1].style.width = readyToApplyLife) <= "0%" ) {
     lifeBarsArray[1].style.width = "0%";
-
-    setTimeout( cpuTurnDecision = () => {
+    setTimeout( () => {
       printAtLogPannel("Player 1 Wins ! 🎉🎉🎉");
       reStartGameButton.classList.remove("remove-from-screen");
       mainDiv[0].classList.add("remove-from-screen");
       finalGiffSection[1].classList.remove("remove-from-screen");
       grab_dataForEndFightGiff("winner");
     }, 1500);
-
   } else {
     if ( typeOfAttackParam === "spell" ) {
       displayingCpuRandomGiff();
@@ -198,9 +184,7 @@ const modifyLifebarPointsOfCpu = (typeOfAttackParam, pointsToModifyParam) => {
     } else if ( typeOfAttackParam === "attack" ) {
       printAtLogPannel(`Player 1 Attacks 🗡🗡🗡 and takes ${attackDamage} life points . . . .`);
     }
-
     lifeBarsArray[1].style.width = readyToApplyLife;
-
     setTimeout( () => {
       CPUselectRandomOption();
     }, 3000);

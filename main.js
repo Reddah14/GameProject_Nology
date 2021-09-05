@@ -311,7 +311,13 @@ function CPUspellPlayerOne() {
 
 function CPUeatPizza() {
   turnCounterCPU++;
-  sessionStorage.setItem('isCPUspell', false);
+  
+  
+  if ( lifeBarsArray[1].style.width === "100%" || lifeBarsArray[1].style.width > "50%" ) {
+    logPannel.innerText = "CPU tries to eat pizza ... but still waiting for delivery and loses turn !! 🎃🎃🎃";
+    
+    return;
+  }
 
   const regexOption = /\d+/g; // to select only numbers
   let CPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor

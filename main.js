@@ -139,7 +139,7 @@ function playerOneAttackCPU() {
   }
 }
 
-function playerOneSpellCPU() {
+const playerOneSpellCPU = () => {
   turnCounterPlayerOne++;
   let playerOneSpellCPUuntilTurn = turnCounterPlayerOne + 2;
   sessionStorage.setItem("playerOneSpellCPUuntilTurn", playerOneSpellCPUuntilTurn);
@@ -188,7 +188,7 @@ function playerOneSpellCPU() {
   }  
 }
 
-function playerOneEatPizza() {
+const playerOneEatPizza = () => {
   turnCounterPlayerOne++;
   
   if ( lifeBarsArray[0].style.width === "100%" || lifeBarsArray[0].style.width > "50%" ) {
@@ -234,9 +234,8 @@ function playerOneEatPizza() {
   }, 3000);  
 }
 
-function CPUattackPlayerOne() {
+const CPUattackPlayerOne = () => {
   turnCounterCPU++;
-
 
   const regexOption = /\d+/g; // to select only numbers
   let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
@@ -276,7 +275,7 @@ function CPUattackPlayerOne() {
   }    
 }
 
-function CPUspellPlayerOne() {
+const CPUspellPlayerOne = () => {
   turnCounterCPU++;
   let CPUSpellPlayerOneuntilTurn = turnCounterCPU + 2;
   sessionStorage.setItem("CPUSpellPlayerOneuntilTurn", CPUSpellPlayerOneuntilTurn);
@@ -320,7 +319,7 @@ function CPUspellPlayerOne() {
   }
 }
 
-function CPUeatPizza() {
+const CPUeatPizza = () => {
   turnCounterCPU++;
   
   

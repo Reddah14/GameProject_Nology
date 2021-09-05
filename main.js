@@ -209,7 +209,12 @@ function playerOneEatPizza() {
   let readyToApplyLife = modifiedFormattedLife + "%";
   console.log( typeof readyToApplyLife);
 
-  logPannel.innerText = "Player 1 eats a slice of pizza 🍕! Recovers 15 life points . . . ."
+  if ( sessionStorage.getItem("isPlayerOnespell") === "true" ) {
+    sessionStorage.setItem("isPlayerOnespell", "false");
+    logPannel.innerText = "Player 1 eats a slice of pizza 🍕 ! Recovers 15 life points and is not under the spell anymore !";
+  } else {
+    logPannel.innerText = "Player 1 eats a slice of pizza 🍕 ! Recovers 15 life points . .";
+  }
   lifeBarsArray[0].style.width = readyToApplyLife;
   setTimeout(function cpuTurnDecision() {
     // After waiting for 3 seconds, call the function below.

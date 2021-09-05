@@ -147,8 +147,9 @@ function playerOneAttackCPU() {
 function playerOneSpellCPU() {
   turnCounterPlayerOne++;
   let playerOneSpellCPUuntilTurn = turnCounterPlayerOne + 2;
-  sessionStorage.setItem('playerOneSpellCPUuntilTurn', playerOneSpellCPUuntilTurn);
-  sessionStorage.setItem('isCPUspell', true);
+  sessionStorage.setItem("playerOneSpellCPUuntilTurn", playerOneSpellCPUuntilTurn);
+  sessionStorage.setItem("isCPUspell", "true");
+
   const regexOption = /\d+/g; // to select only numbers
   let currentCPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
   let currentCPUlifeClean = currentCPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
@@ -265,8 +266,8 @@ function CPUattackPlayerOne() {
 function CPUspellPlayerOne() {
   turnCounterCPU++;
   let CPUSpellPlayerOneuntilTurn = turnCounterCPU + 2;
-  sessionStorage.setItem('CPUSpellPlayerOneuntilTurn', CPUSpellPlayerOneuntilTurn);
-  sessionStorage.setItem('isPlayerOnespell', true);  
+  sessionStorage.setItem("CPUSpellPlayerOneuntilTurn", CPUSpellPlayerOneuntilTurn);
+  sessionStorage.setItem("isPlayerOnespell", "true");  
 
   const regexOption = /\d+/g; // to select only numbers
   let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
@@ -341,13 +342,13 @@ buttonsArray.forEach(button => {
       const randomNumber = Math.floor(Math.random() * 10);
       if ( randomNumber <= 6 ) {
         console.log("p1 starts");
-        sessionStorage.setItem('whoStartTheGame', 'player1');
+        sessionStorage.setItem("whoStartTheGame", "player1");
         logPannel.innerHTML = "Player 1 Starts !";
         event.target.classList.add("remove-from-screen");
         startGameButton.classList.remove("remove-from-screen");
       } else {
         console.log("cpu starts");
-        sessionStorage.setItem('whoStartTheGame', 'cpu');
+        sessionStorage.setItem("whoStartTheGame", "cpu");
         logPannel.innerHTML = "CPU Starts !";
         event.target.classList.add("remove-from-screen");
         startGameButton.classList.remove("remove-from-screen");        

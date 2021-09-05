@@ -331,11 +331,6 @@ function CPUeatPizza() {
   let currentCPUlifeCleanAndTypeNumber = parseInt(CPUlifeClean);
   console.log('rival life clean: ', currentCPUlifeCleanAndTypeNumber); // 75 (number type)
   const pizzaHealing = 15;
-  if ( currentCPUlifeCleanAndTypeNumber === 100 ) {
-    CPUselectRandomOption();
-
-    return;
-  }
   let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
   console.log(modifiedLifeTypeNumber);
 
@@ -343,7 +338,12 @@ function CPUeatPizza() {
   let readyToApplyLife = modifiedFormattedLife + "%";
   console.log( typeof readyToApplyLife);
 
-  logPannel.innerText = "CPU has a Pizza Fest 🍕🍕🍕 And recovers 15 life points . . . ."
+  if (  sessionStorage.getItem("isCPUspell") === "true" ) {
+    sessionStorage.setItem("isCPUspell", "false");
+    logPannel.innerText = "CPU eats a slice of pizza 🍕 ! Recovers 15 life points and is not under the spell anymore !";
+  } else {
+    logPannel.innerText = "CPU eats a slice of pizza 🍕 ! Recovers 15 life points . .";
+  }
   lifeBarsArray[1].style.width = readyToApplyLife;  
 }
 

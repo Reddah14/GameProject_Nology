@@ -37,7 +37,9 @@ function reStartGame() {
   const playerOneRandomGiff = document.getElementById("playerOneRandomGiff");
   playerOneRandomGiff.classList.add("remove-from-screen");
 }
-function startGame() {
+
+const reStartGame = () => {
+const startGame = () => {
   sessionStorage.removeItem("playerOneSpellCPUuntilTurn");
   sessionStorage.removeItem("isCPUspell");
   sessionStorage.removeItem("CPUSpellPlayerOneuntilTurn");
@@ -70,7 +72,7 @@ function startGame() {
   }
 }
 
-function CPUselectRandomOption() {
+const CPUselectRandomOption = () => {
   console.log('cpu is ON!!!');
   
   const randomNumber = Math.floor(Math.random() * 8);
@@ -88,7 +90,7 @@ function CPUselectRandomOption() {
   }
 }
 
-function playerOneAttackCPU() {
+const playerOneAttackCPU = () => {
   turnCounterPlayerOne++;
 
   const regexOption = /\d+/g; // to select only numbers

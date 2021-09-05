@@ -343,30 +343,10 @@ const CPUspellPlayerOne = () => {
 
 const CPUeatPizza = () => {
   turnCounterCPU++; 
-  if ( lifeBarsArray[1].style.width === "100%" || lifeBarsArray[1].style.width > "50%" ) {
-    printAtLogginPannel("CPU tries to eat pizza ... but still waiting for delivery and loses turn !! 🎃🎃🎃");
-    
-    return;
-  }
-  displayingCpuMainGiff();
 
-  const regexOption = /\d+/g; // to select only numbers
-  let CPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
-  let CPUlifeClean = CPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
-  let currentCPUlifeCleanAndTypeNumber = parseInt(CPUlifeClean);
-  const pizzaHealing = 15;
-  let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
+  modifyLifebarPointsOfPlayerOne("pizza");
 
-  let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
-  let readyToApplyLife = modifiedFormattedLife + "%";
-
-  if (  sessionStorage.getItem("isCPUspell") === "true" ) {
-    sessionStorage.setItem("isCPUspell", "false");
-    printAtLogginPannel("CPU eats a slice of pizza 🍕 ! Recovers 15 life points and is not under the spell anymore !");
-  } else {
-    printAtLogginPannel("CPU eats a slice of pizza 🍕 ! Recovers 15 life points . .");
-  }
-  lifeBarsArray[1].style.width = readyToApplyLife;  
+  return;
 }
 
 buttonsArray.forEach( button => {

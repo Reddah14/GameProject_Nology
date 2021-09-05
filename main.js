@@ -11,6 +11,99 @@ let turnCounterCPU = 0;
 let attackDamage = 30;
 let untilWhatTurnIsCPUspell = 0;
 let untilWhatTurnIsPlayerOnespell = 0;
+
+//TODO: fix loggin pannel when attacking under spell (should say 15 damage not 30)
+
+const modifyLifebarPointsOfCpu = (typeOfAttackParam, pointsToModifyParam) => {
+//TODO: switch case refactor ?
+const regexOption = /\d+/g; // to select only numbers
+
+  if ( typeOfAttackParam === "pizza" ) {
+    const pizzaHealing = 15;
+    if ( lifeBarsArray[0].style.width === "100%" || lifeBarsArray[0].style.width > "50%" ) {
+      printAtLogginPannel("Player 1 tries to eat pizza ... but still waiting for delivery and loses turn !! 🎃🎃🎃");
+      
+      setTimeout( () => {
+        CPUselectRandomOption();
+      }, 1500);
+  
+      return;
+    }
+    displayingPlayerOneMainGiff();
+
+    let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
+    let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
+    let currentPlayerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
+    let modifiedLifeTypeNumber = currentPlayerOneLifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
+    let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
+    let readyToApplyLife = modifiedFormattedLife + "%";    
+    lifeBarsArray[0].style.width = readyToApplyLife;
+
+    if ( sessionStorage.getItem("isPlayerOnespell") === "true" ) {
+      sessionStorage.setItem("isPlayerOnespell", "false");
+      printAtLogginPannel("Player 1 eats a slice of pizza 🍕 ! Recovers 15 life points and is not under the spell anymore !");
+    } else {
+      printAtLogginPannel("Player 1 eats a slice of pizza 🍕 ! Recovers 15 life points . .");
+    }
+    setTimeout( () => {
+      CPUselectRandomOption();
+    }, 3000);
+
+    return;
+  }
+
+  let currentCPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
+  let currentCPUlifeClean = currentCPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
+  let currentCPUlifeCleanAndTypeNumber = parseInt(currentCPUlifeClean);
+
+  const isPlayerOneunderSpell = sessionStorage.getItem("isPlayerOnespell");
+  if (isPlayerOneunderSpell) {
+    untilWhatTurnIsPlayerOnespell = sessionStorage.getItem("CPUSpellPlayerOneuntilTurn");
+  }
+  if ( typeOfAttackParam === "attack" ) {
+    if ( isPlayerOneunderSpell === "true" && turnCounterPlayerOne <= untilWhatTurnIsPlayerOnespell ) {
+      pointsToModifyParam = 15;
+    } else {
+      pointsToModifyParam = 30;
+    }
+  } else if ( typeOfAttackParam === "spell" ) {
+    pointsToModifyParam = 20;
+  } else {
+    console.error("Can't read the type of attack in order to modify lifebar !");
+  }
+
+  let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber - pointsToModifyParam; // cambio el valor
+  
+  let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
+  let readyToApplyLife = modifiedFormattedLife + "%";
+
+  if ( (lifeBarsArray[1].style.width = readyToApplyLife) <= "0%" ) {
+    lifeBarsArray[1].style.width = "0%";
+
+    setTimeout( cpuTurnDecision = () => {
+      printAtLogginPannel("Player 1 Wins ! 🎉🎉🎉");
+      reStartGameButton.classList.remove("remove-from-screen");
+      mainDiv[0].classList.add("remove-from-screen");
+      finalGiffSection[1].classList.remove("remove-from-screen");
+      grab_dataForEndFightGiff("winner");
+    }, 1500);
+
+  } else {
+    if ( typeOfAttackParam === "spell" ) {
+      displayingCpuRandomGiff();
+      grab_dataForCPUgiff("dog funny");
+      printAtLogginPannel("Player 1 Spells✨ on rival giff for 2 more turns ! And takes 20 life points . . . .");
+    } else if ( typeOfAttackParam === "attack" ) {
+      printAtLogginPannel(`Player 1 Attacks 🗡🗡🗡 and takes ${attackDamage} life points . . . .`);
+    }
+
+    lifeBarsArray[1].style.width = readyToApplyLife;
+
+    setTimeout( () => {
+      CPUselectRandomOption();
+    }, 3000);
+  }
+}
 const printAtLogginPannel = (stringToPrintParam) => {
   return logPannel.innerText = stringToPrintParam;
 }

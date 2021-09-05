@@ -25,17 +25,41 @@ function reStartGame() {
   buttonsArray[1].classList.add("remove-from-screen");
   buttonsArray[2].classList.add("remove-from-screen");
   logPannel.innerText = "Another Round ?"
+const displayingPlayerOneRandomGiff = () => {
+  const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
+  playerOneMainGiff.classList.add("remove-from-screen");
+  const playerOneRandomGiff = document.getElementById("playerOneRandomGiff");
+  playerOneRandomGiff.classList.remove("remove-from-screen");
+
+  return;
+}
 
 /* reset cpu giff when finish battle */
+const displayingCpuRandomGiff = () => {
+  const cpuMainGiff = document.querySelector("#cpuMainGiff");
+  cpuMainGiff.classList.add("remove-from-screen");
+  const cpuRandomGiff = document.getElementById("cpuRandomGiff");
+  cpuRandomGiff.classList.remove("remove-from-screen");
+
+  return;
+}
+
+const displayingCpuMainGiff = () => {
   const cpuMainGiff = document.querySelector("#cpuMainGiff");
   cpuMainGiff.classList.remove("remove-from-screen");
   const cpuRandomGiff = document.getElementById("cpuRandomGiff");
   cpuRandomGiff.classList.add("remove-from-screen");
-/* reset player1 giff when finish battle */
+
+  return;
+}
+
+const displayingPlayerOneMainGiff = () => {
   const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
   playerOneMainGiff.classList.remove("remove-from-screen");
   const playerOneRandomGiff = document.getElementById("playerOneRandomGiff");
   playerOneRandomGiff.classList.add("remove-from-screen");
+
+  return;
 }
 
 const reStartGame = () => {

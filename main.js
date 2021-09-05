@@ -341,12 +341,12 @@ function CPUeatPizza() {
   lifeBarsArray[1].style.width = readyToApplyLife;  
 }
 
-buttonsArray.forEach(button => {
+buttonsArray.forEach( button => {
 
-  button.addEventListener("click", event => {
+  button.addEventListener( "click", event => {
     if ( event.target.name === "ChoosePlayerToStart" ) {
       const randomNumber = Math.floor(Math.random() * 10);
-      if ( randomNumber <= 6 ) {
+      if ( randomNumber <= 5 ) {
         console.log("p1 starts");
         sessionStorage.setItem("whoStartTheGame", "player1");
         logPannel.innerHTML = "Player 1 Starts !";
@@ -357,7 +357,7 @@ buttonsArray.forEach(button => {
         sessionStorage.setItem("whoStartTheGame", "cpu");
         logPannel.innerHTML = "CPU Starts !";
         event.target.classList.add("remove-from-screen");
-        startGameButton.classList.remove("remove-from-screen");        
+        startGameButton.classList.remove("remove-from-screen");
       }
     }
     /* if attack button is clicked by player 1*/

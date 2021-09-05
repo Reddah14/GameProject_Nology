@@ -307,6 +307,8 @@ const CPUselectRandomOption = () => {
 const playerOneAttackCPU = () => {
   turnCounterPlayerOne++;
   modifyLifebarPointsOfCpu("attack", 30);
+
+  return;
 }
 
 const playerOneSpellCPU = () => {
@@ -314,12 +316,17 @@ const playerOneSpellCPU = () => {
   let playerOneSpellCPUuntilTurn = turnCounterPlayerOne + 2;
   sessionStorage.setItem("playerOneSpellCPUuntilTurn", playerOneSpellCPUuntilTurn);
   sessionStorage.setItem("isCPUspell", "true");
+
   modifyLifebarPointsOfCpu("spell", 20);
+
+  return;
 }
 
 const playerOneEatPizza = () => {
   turnCounterPlayerOne++;
   modifyLifebarPointsOfCpu("pizza");
+
+  return;
 }
 
 const CPUattackPlayerOne = () => {

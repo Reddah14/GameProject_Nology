@@ -35,12 +35,17 @@ function reStartGame() {
   playerOneRandomGiff.classList.add("remove-from-screen");
 }
 function startGame() {
+  sessionStorage.removeItem("playerOneSpellCPUuntilTurn");
+  sessionStorage.removeItem("isCPUspell");
+  sessionStorage.removeItem("CPUSpellPlayerOneuntilTurn");
+  sessionStorage.removeItem("isPlayerOnespell");
+
   lifeBarsArray[0].style.width = "100%";
   lifeBarsArray[1].style.width = "100%";
   startGameButton.classList.add("remove-from-screen");
   logPannel.innerText = "Fight ! ";
   mainDiv[0].classList.remove("remove-from-screen");
-  const whoStarts = sessionStorage.getItem('whoStartTheGame');
+  const whoStarts = sessionStorage.getItem("whoStartTheGame");
   const playerOneButtonsArray = Object.values(buttonsArray).filter( button => {
     return button.parentElement.className === "row gap-2 d-md-block battlefield__player1-buttons";
   })

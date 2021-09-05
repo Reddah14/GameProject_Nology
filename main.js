@@ -16,6 +16,9 @@ let turnCounterCPU = 0;
 let attackDamage = 30;
 let untilWhatTurnIsCPUspell = 0;
 let untilWhatTurnIsPlayerOnespell = 0;
+const printAtLogginPannel = (stringToPrintParam) => {
+  return logPannel.innerText = stringToPrintParam;
+}
 
 const displayingPlayerOneButtons = () => {
   const playerOneButtonsArray = Object.values(buttonsArray).filter( button => {
@@ -91,18 +94,19 @@ const reStartGame = () => {
   buttonsArray[0].classList.remove("remove-from-screen");
   buttonsArray[1].classList.add("remove-from-screen");
   buttonsArray[2].classList.add("remove-from-screen");
-  logPannel.innerText = "Another Round ?"
+  printAtLogginPannel("Another Round ?");
   displayingCpuMainGiff();
   displayingPlayerOneMainGiff();
 
   return;
 };
+
 const startGame = () => {
   removingSessionStorageSpellItems();
   resettingLifesToHundredPoints();
 
   startGameButton.classList.add("remove-from-screen");
-  logPannel.innerText = "Fight ! ";
+  printAtLogginPannel("Fight ! ");
   mainDiv[0].classList.remove("remove-from-screen");
   const whoStarts = sessionStorage.getItem("whoStartTheGame");
 
@@ -167,8 +171,7 @@ const playerOneAttackCPU = () => {
     //alert("KO!");
 
     setTimeout( cpuTurnDecision = () => {
-      // After waiting for 3 seconds, call the function below.
-      logPannel.innerText = "Player 1 Wins ! 🎉🎉🎉";
+      printAtLogginPannel("Player 1 Wins ! 🎉🎉🎉");
       reStartGameButton.classList.remove("remove-from-screen");
       mainDiv[0].classList.add("remove-from-screen");
       finalGiffSection[1].classList.remove("remove-from-screen");
@@ -179,10 +182,8 @@ const playerOneAttackCPU = () => {
 
   } else {
     lifeBarsArray[1].style.width = readyToApplyLife;
-    logPannel.innerText = `Player 1 Attacks 🗡🗡🗡 and takes ${attackDamage} life points . . . .`;
-    setTimeout( cpuTurnDecision = () => {
-      // After waiting for 3 seconds, call the function below.
-      console.log("from attack");
+    printAtLogginPannel(`Player 1 Attacks 🗡🗡🗡 and takes ${attackDamage} life points . . . .`);
+    setTimeout( () => {
       CPUselectRandomOption();
     }, 3000);
   }
@@ -224,10 +225,8 @@ const playerOneSpellCPU = () => {
     grab_dataForCPUgiff("dog funny");
 
     lifeBarsArray[1].style.width = readyToApplyLife;
-    logPannel.innerText = "Player 1 Spells✨ on rival giff for 2 more turns ! And takes 20 life points . . . .";
-    setTimeout(function cpuTurnDecision() {
-      // After waiting for 3 seconds, call the function below.
-      console.log("from spell");
+    printAtLogginPannel("Player 1 Spells✨ on rival giff for 2 more turns ! And takes 20 life points . . . .");
+    setTimeout( () => {
       CPUselectRandomOption();
     }, 3000);
   }  
@@ -237,7 +236,7 @@ const playerOneEatPizza = () => {
   turnCounterPlayerOne++;
   
   if ( lifeBarsArray[0].style.width === "100%" || lifeBarsArray[0].style.width > "50%" ) {
-    logPannel.innerText = "Player 1 tries to eat pizza ... but still waiting for delivery and loses turn !! 🎃🎃🎃";
+    printAtLogginPannel("Player 1 tries to eat pizza ... but still waiting for delivery and loses turn !! 🎃🎃🎃");
     
     setTimeout(function cpuTurnDecision() {
       console.log('p1 cant eat pizza & lose turn');
@@ -263,9 +262,9 @@ const playerOneEatPizza = () => {
 
   if ( sessionStorage.getItem("isPlayerOnespell") === "true" ) {
     sessionStorage.setItem("isPlayerOnespell", "false");
-    logPannel.innerText = "Player 1 eats a slice of pizza 🍕 ! Recovers 15 life points and is not under the spell anymore !";
+    printAtLogginPannel("Player 1 eats a slice of pizza 🍕 ! Recovers 15 life points and is not under the spell anymore !");
   } else {
-    logPannel.innerText = "Player 1 eats a slice of pizza 🍕 ! Recovers 15 life points . .";
+    printAtLogginPannel("Player 1 eats a slice of pizza 🍕 ! Recovers 15 life points . .");
   }
   lifeBarsArray[0].style.width = readyToApplyLife;
   setTimeout(function cpuTurnDecision() {
@@ -303,15 +302,15 @@ const CPUattackPlayerOne = () => {
   if ( (lifeBarsArray[0].style.width = readyToApplyLife) <= "0%" ) {
     lifeBarsArray[0].style.width = "0%";
 
-    setTimeout( cpuBeatsPlayerOne = () => {
-      logPannel.innerText = "CPU Wins ! 👾🤖👾";
+    setTimeout( () => {
+      printAtLogginPannel("CPU Wins ! 👾🤖👾");
       reStartGameButton.classList.remove("remove-from-screen");
       mainDiv[0].classList.add("remove-from-screen");
       finalGiffSection[1].classList.remove("remove-from-screen");
       grab_dataForEndFightGiff("loser");
     }, 1500);    
   } else {
-    logPannel.innerText = `CPU Attacks!! 🗡🗡🗡 on Player 1 ! And takes ${attackDamage} life points . . . .`
+    printAtLogginPannel(`CPU Attacks!! 🗡🗡🗡 on Player 1 ! And takes ${attackDamage} life points . . . .`);
     lifeBarsArray[0].style.width = readyToApplyLife;
   }    
 }
@@ -338,9 +337,8 @@ const CPUspellPlayerOne = () => {
   if ( (lifeBarsArray[0].style.width = readyToApplyLife) <= "0%" ) {
     lifeBarsArray[0].style.width = "0%";
 
-    setTimeout( cpuBeatsPlayerOne = () => {
-      // After waiting for 3 seconds, call the function below.
-      logPannel.innerText = "CPU Wins ! 👾🤖👾";
+    setTimeout( () => {
+      printAtLogginPannel("CPU Wins ! 👾🤖👾");
       reStartGameButton.classList.remove("remove-from-screen");
       mainDiv[0].classList.add("remove-from-screen");
       finalGiffSection[1].classList.remove("remove-from-screen");
@@ -350,18 +348,15 @@ const CPUspellPlayerOne = () => {
     displayingPlayerOneRandomGiff();
     grab_dataForPlayerOneGiff("cat");
 
-
     lifeBarsArray[0].style.width = readyToApplyLife;
-    logPannel.innerText = "CPU Spells on Player 1 !! ✨✨  -20 life points . . . ."
+    printAtLogginPannel("CPU Spells on Player 1 !! ✨✨  -20 life points . . . .");
   }
 }
 
 const CPUeatPizza = () => {
-  turnCounterCPU++;
-  
-  
+  turnCounterCPU++; 
   if ( lifeBarsArray[1].style.width === "100%" || lifeBarsArray[1].style.width > "50%" ) {
-    logPannel.innerText = "CPU tries to eat pizza ... but still waiting for delivery and loses turn !! 🎃🎃🎃";
+    printAtLogginPannel("CPU tries to eat pizza ... but still waiting for delivery and loses turn !! 🎃🎃🎃");
     
     return;
   }
@@ -382,9 +377,9 @@ const CPUeatPizza = () => {
 
   if (  sessionStorage.getItem("isCPUspell") === "true" ) {
     sessionStorage.setItem("isCPUspell", "false");
-    logPannel.innerText = "CPU eats a slice of pizza 🍕 ! Recovers 15 life points and is not under the spell anymore !";
+    printAtLogginPannel("CPU eats a slice of pizza 🍕 ! Recovers 15 life points and is not under the spell anymore !");
   } else {
-    logPannel.innerText = "CPU eats a slice of pizza 🍕 ! Recovers 15 life points . .";
+    printAtLogginPannel("CPU eats a slice of pizza 🍕 ! Recovers 15 life points . .");
   }
   lifeBarsArray[1].style.width = readyToApplyLife;  
 }
@@ -395,15 +390,13 @@ buttonsArray.forEach( button => {
     if ( event.target.name === "ChoosePlayerToStart" ) {
       const randomNumber = Math.floor(Math.random() * 10);
       if ( randomNumber <= 5 ) {
-        console.log("p1 starts");
         sessionStorage.setItem("whoStartTheGame", "player1");
-        logPannel.innerHTML = "Player 1 Starts !";
+        printAtLogginPannel("Player 1 Starts !");
         event.target.classList.add("remove-from-screen");
         startGameButton.classList.remove("remove-from-screen");
       } else {
-        console.log("cpu starts");
         sessionStorage.setItem("whoStartTheGame", "cpu");
-        logPannel.innerHTML = "CPU Starts !";
+        printAtLogginPannel("CPU Starts !");
         event.target.classList.add("remove-from-screen");
         startGameButton.classList.remove("remove-from-screen");
       }

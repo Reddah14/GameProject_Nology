@@ -318,11 +318,11 @@ const startGame = () => {
 const CPUselectRandomOption = () => {  
   const randomNumber = Math.floor(Math.random() * 8);
   if ( randomNumber <= 2 ) {
-    CPUattackPlayerOne();
+    return CPUattackPlayerOne();
   } else if ( randomNumber > 2 && randomNumber <= 5 ) {
-    CPUspellPlayerOne();
+    return CPUspellPlayerOne();
   } else if ( randomNumber > 5 ) {
-    CPUeatPizza();
+    return CPUeatPizza();
   }
 }
 

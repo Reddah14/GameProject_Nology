@@ -14,6 +14,86 @@ let untilWhatTurnIsPlayerOnespell = 0;
 
 //TODO: fix loggin pannel when attacking under spell (should say 15 damage not 30)
 
+const modifyLifebarPointsOfPlayerOne = (typeOfAttackParam, pointsToModifyParam) => {
+//TODO: switch case refactor ?
+
+  if ( typeOfAttackParam === "pizza" ) {
+    const pizzaHealing = 15;
+    if ( lifeBarsArray[1].style.width === "100%" || lifeBarsArray[1].style.width > "50%" ) {
+      printAtLogginPannel("CPU tries to eat pizza ... but still waiting for delivery and loses turn !! 🎃🎃🎃");
+      
+      return;
+    }
+    displayingCpuMainGiff();
+
+    let CPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
+    let CPUlifeClean = CPUlifeDirty.match(regexOptionForOnlyNumbers); // currentLifeClean = ["100"]
+    let currentCPUlifeCleanAndTypeNumber = parseInt(CPUlifeClean);
+    let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
+    let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
+    let readyToApplyLife = modifiedFormattedLife + "%";    
+    lifeBarsArray[1].style.width = readyToApplyLife;  
+
+    if (  sessionStorage.getItem("isCPUspell") === "true" ) {
+      sessionStorage.setItem("isCPUspell", "false");
+      printAtLogginPannel("CPU eats a slice of pizza 🍕 ! Recovers 15 life points and is not under the spell anymore !");
+    } else {
+      printAtLogginPannel("CPU eats a slice of pizza 🍕 ! Recovers 15 life points . .");
+    }
+
+    return;
+  }
+
+  let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
+    let playerOneLifeClean = playerOneLifeDirty.match(regexOptionForOnlyNumbers); // currentLifeClean = ["100"]
+    let playerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
+    
+    const isCPUunderSpell = sessionStorage.getItem("isCPUspell");
+  if (isCPUunderSpell) {
+    untilWhatTurnIsCPUspell = sessionStorage.getItem("playerOneSpellCPUuntilTurn");
+  }
+  if ( typeOfAttackParam === "attack" ) {
+    if ( isCPUunderSpell === "true" && turnCounterCPU <= untilWhatTurnIsCPUspell ) {
+      pointsToModifyParam = 15;
+    } else {
+      pointsToModifyParam = 30;
+    }
+  } else if ( typeOfAttackParam === "spell" ) {
+    pointsToModifyParam = 20;
+  } else {
+    console.error("Can't read the type of attack in order to modify lifebar !");
+  }
+
+  let modifiedLifeTypeNumber = playerOneLifeCleanAndTypeNumber - pointsToModifyParam; // cambio el valor
+
+  let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
+  let readyToApplyLife = modifiedFormattedLife + "%";
+
+  if ( (lifeBarsArray[0].style.width = readyToApplyLife) <= "0%" ) {
+    lifeBarsArray[0].style.width = "0%";
+    setTimeout( () => {
+      printAtLogginPannel("CPU Wins ! 👾🤖👾");
+      reStartGameButton.classList.remove("remove-from-screen");
+      mainDiv[0].classList.add("remove-from-screen");
+      finalGiffSection[1].classList.remove("remove-from-screen");
+      grab_dataForEndFightGiff("loser");
+    }, 1500);
+  } else {
+    if ( typeOfAttackParam === "attack" ) {
+      printAtLogginPannel(`CPU Attacks!! 🗡🗡🗡 on Player 1 ! And takes ${attackDamage} life points . . . .`);
+      lifeBarsArray[0].style.width = readyToApplyLife;
+
+      return;
+    } else if ( typeOfAttackParam === "spell" ) {
+      grab_dataForPlayerOneGiff("cat");
+      displayingPlayerOneRandomGiff();
+      printAtLogginPannel("CPU Spells on Player 1 !! ✨✨  -20 life points . . . .");
+      lifeBarsArray[0].style.width = readyToApplyLife;
+
+      return;
+    }
+  }
+}
 const modifyLifebarPointsOfCpu = (typeOfAttackParam, pointsToModifyParam) => {
 //TODO: switch case refactor ?
 const regexOption = /\d+/g; // to select only numbers

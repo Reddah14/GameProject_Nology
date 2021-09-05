@@ -16,6 +16,14 @@ let turnCounterCPU = 0;
 let attackDamage = 30;
 let untilWhatTurnIsCPUspell = 0;
 let untilWhatTurnIsPlayerOnespell = 0;
+const removingSessionStorageSpellItems = () => {
+  sessionStorage.removeItem("isPlayerOnespell");
+  sessionStorage.removeItem("playerOneSpellCPUuntilTurn");
+  sessionStorage.removeItem("isCPUspell");
+  sessionStorage.removeItem("CPUSpellPlayerOneuntilTurn");
+
+  return;
+}
 const displayingPlayerOneRandomGiff = () => {
   const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
   playerOneMainGiff.classList.add("remove-from-screen");
@@ -65,10 +73,7 @@ const reStartGame = () => {
   return;
 };
 const startGame = () => {
-  sessionStorage.removeItem("playerOneSpellCPUuntilTurn");
-  sessionStorage.removeItem("isCPUspell");
-  sessionStorage.removeItem("CPUSpellPlayerOneuntilTurn");
-  sessionStorage.removeItem("isPlayerOnespell");
+  removingSessionStorageSpellItems();
 
   lifeBarsArray[0].style.width = "100%";
   lifeBarsArray[1].style.width = "100%";

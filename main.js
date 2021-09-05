@@ -16,6 +16,9 @@ let turnCounterCPU = 0;
 let attackDamage = 30;
 let untilWhatTurnIsCPUspell = 0;
 let untilWhatTurnIsPlayerOnespell = 0;
+const playerOneButtonsArray = Object.values(buttonsArray).filter( button => {
+  return button.parentElement.className === "row gap-2 d-md-block battlefield__player1-buttons";
+})
 function reStartGame() {
   finalGiffSection[1].classList.add("remove-from-screen");
   buttonsArray[0].classList.remove("remove-from-screen");

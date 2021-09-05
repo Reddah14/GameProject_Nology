@@ -1,0 +1,58 @@
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: transparent;
+  margin-top: 15%;
+
+  &__info {
+    padding: 30px;
+    border-radius: 7px;
+    background-color: darksalmon;
+
+    &--logPannel {
+      text-align: center !important;
+      color: rebeccapurple !important;
+      font-family: monospace;
+      font-size: 21px;
+
+      > span {
+        text-align: center;
+        font-size: 30px;
+        color:black;
+      }
+
+      
+      &-back-to-game {
+        display: flex;
+        justify-content: center;
+        max-width: 289px;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 40px;
+        color: darkcyan;
+        font-family: monospace;
+        font-size: 19px;
+        font-weight: bolder;
+        
+        > a {
+          text-decoration: none;
+          color: whitesmoke;
+        }
+      }   
+    }
+
+    > p {
+      text-align: left;
+      color: rebeccapurple;
+      font-family: monospace;
+      font-size: 21px;
+      font-weight: 400;
+      
+      > span {
+        color: royalblue;
+        font-weight: bolder;
+        
+      }
+    }
+  }
+}

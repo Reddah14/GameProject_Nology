@@ -238,38 +238,7 @@ const playerOneSpellCPU = () => {
 
 const playerOneEatPizza = () => {
   turnCounterPlayerOne++;
-  
-  if ( lifeBarsArray[0].style.width === "100%" || lifeBarsArray[0].style.width > "50%" ) {
-    printAtLogginPannel("Player 1 tries to eat pizza ... but still waiting for delivery and loses turn !! 🎃🎃🎃");
-    
-    setTimeout( () => {
-      CPUselectRandomOption();
-    }, 1500);
-
-    return;
-  }
-  displayingPlayerOneMainGiff();
-
-  const regexOption = /\d+/g; // to select only numbers
-  let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
-  let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
-  let currentPlayerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
-  const pizzaHealing = 15;
-  let modifiedLifeTypeNumber = currentPlayerOneLifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
-
-  let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
-  let readyToApplyLife = modifiedFormattedLife + "%";
-
-  if ( sessionStorage.getItem("isPlayerOnespell") === "true" ) {
-    sessionStorage.setItem("isPlayerOnespell", "false");
-    printAtLogginPannel("Player 1 eats a slice of pizza 🍕 ! Recovers 15 life points and is not under the spell anymore !");
-  } else {
-    printAtLogginPannel("Player 1 eats a slice of pizza 🍕 ! Recovers 15 life points . .");
-  }
-  lifeBarsArray[0].style.width = readyToApplyLife;
-  setTimeout( () => {
-    CPUselectRandomOption();
-  }, 3000);  
+  modifyLifebarPointsOfCpu("pizza");
 }
 
 const CPUattackPlayerOne = () => {

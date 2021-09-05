@@ -5,6 +5,7 @@ const reStartGameButton = buttonsArray[2];
 const logPannel = document.getElementsByClassName("header__info--logPannel")[0];
 const mainDiv = document.getElementsByTagName("main");
 const finalGiffSection = document.getElementsByTagName("section");
+const regexOptionForOnlyNumbers = /\d+/g; // to select only numbers
 
 let turnCounterPlayerOne = 0;
 let turnCounterCPU = 0;
@@ -94,9 +95,9 @@ const modifyLifebarPointsOfPlayerOne = (typeOfAttackParam, pointsToModifyParam) 
     }
   }
 }
+
 const modifyLifebarPointsOfCpu = (typeOfAttackParam, pointsToModifyParam) => {
 //TODO: switch case refactor ?
-const regexOption = /\d+/g; // to select only numbers
 
   if ( typeOfAttackParam === "pizza" ) {
     const pizzaHealing = 15;
@@ -133,7 +134,7 @@ const regexOption = /\d+/g; // to select only numbers
   }
 
   let currentCPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
-  let currentCPUlifeClean = currentCPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
+  let currentCPUlifeClean = currentCPUlifeDirty.match(regexOptionForOnlyNumbers); // currentLifeClean = ["100"]
   let currentCPUlifeCleanAndTypeNumber = parseInt(currentCPUlifeClean);
 
   const isPlayerOneunderSpell = sessionStorage.getItem("isPlayerOnespell");
@@ -334,7 +335,6 @@ const CPUspellPlayerOne = () => {
   sessionStorage.setItem("CPUSpellPlayerOneuntilTurn", CPUSpellPlayerOneuntilTurn);
   sessionStorage.setItem("isPlayerOnespell", "true");  
 
-  const regexOption = /\d+/g; // to select only numbers
   let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
   let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let playerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);

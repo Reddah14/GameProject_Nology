@@ -1,16 +1,11 @@
-alert("Hello")const lifeBarsArray = document.getElementsByClassName("progress-bar");
-console.log(lifeBarsArray);
 const lifeBarsArray = document.getElementsByClassName("progress-bar");
-
 const buttonsArray = document.querySelectorAll("button");
-//console.log(buttonsArray);
-
 const startGameButton = buttonsArray[1];
 const reStartGameButton = buttonsArray[2];
 const logPannel = document.getElementsByClassName("header__info--logPannel")[0];
-console.log(logPannel.innerText);
 const mainDiv = document.getElementsByTagName("main");
 const finalGiffSection = document.getElementsByTagName("section");
+
 let turnCounterPlayerOne = 0;
 let turnCounterCPU = 0;
 let attackDamage = 30;
@@ -44,6 +39,7 @@ const resettingLifesToHundredPoints = () => {
 
   return;
 }
+
 const removingSessionStorageSpellItems = () => {
   sessionStorage.removeItem("isPlayerOnespell");
   sessionStorage.removeItem("playerOneSpellCPUuntilTurn");
@@ -52,6 +48,7 @@ const removingSessionStorageSpellItems = () => {
 
   return;
 }
+
 const displayingPlayerOneRandomGiff = () => {
   const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
   playerOneMainGiff.classList.add("remove-from-screen");
@@ -61,7 +58,6 @@ const displayingPlayerOneRandomGiff = () => {
   return;
 }
 
-/* reset cpu giff when finish battle */
 const displayingCpuRandomGiff = () => {
   const cpuMainGiff = document.querySelector("#cpuMainGiff");
   cpuMainGiff.classList.add("remove-from-screen");
@@ -123,20 +119,13 @@ const startGame = () => {
   }
 }
 
-const CPUselectRandomOption = () => {
-  console.log('cpu is ON!!!');
-  
+const CPUselectRandomOption = () => {  
   const randomNumber = Math.floor(Math.random() * 8);
-  console.log(randomNumber);
-
   if ( randomNumber <= 2 ) {
-    console.log("attack button ON");
     CPUattackPlayerOne();
   } else if ( randomNumber > 2 && randomNumber <= 5 ) {
-    console.log("spell button ON");
     CPUspellPlayerOne();
   } else if ( randomNumber > 5 ) {
-    console.log("pizza button ON");
     CPUeatPizza();
   }
 }
@@ -148,7 +137,6 @@ const playerOneAttackCPU = () => {
   let currentCPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
   let currentCPUlifeClean = currentCPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let currentCPUlifeCleanAndTypeNumber = parseInt(currentCPUlifeClean);
-  console.log('CPU life clean: ', currentCPUlifeCleanAndTypeNumber); // 75 (number type)
   
   const isPlayerOneunderSpell = sessionStorage.getItem("isPlayerOnespell");
   if (isPlayerOneunderSpell) {
@@ -160,15 +148,14 @@ const playerOneAttackCPU = () => {
     attackDamage = 30;
   } 
   let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber - attackDamage; // cambio el valor
-  console.log(modifiedLifeTypeNumber);
+  
 
   let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
   let readyToApplyLife = modifiedFormattedLife + "%";
-  console.log( typeof readyToApplyLife);
+
 
   if ( (lifeBarsArray[1].style.width = readyToApplyLife) <= "0%" ) {
     lifeBarsArray[1].style.width = "0%";
-    //alert("KO!");
 
     setTimeout( cpuTurnDecision = () => {
       printAtLogginPannel("Player 1 Wins ! 🎉🎉🎉");
@@ -177,8 +164,6 @@ const playerOneAttackCPU = () => {
       finalGiffSection[1].classList.remove("remove-from-screen");
       grab_dataForEndFightGiff("winner");
     }, 1500);
-
-
 
   } else {
     lifeBarsArray[1].style.width = readyToApplyLife;
@@ -199,18 +184,18 @@ const playerOneSpellCPU = () => {
   let currentCPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
   let currentCPUlifeClean = currentCPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let currentCPUlifeCleanAndTypeNumber = parseInt(currentCPUlifeClean);
-  console.log('CPU life clean: ', currentCPUlifeCleanAndTypeNumber); // 75 (number type)
+  
   const spellDamage = 20;
   let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber - spellDamage; // cambio el valor
-  console.log(modifiedLifeTypeNumber);
+  
 
   let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
   let readyToApplyLife = modifiedFormattedLife + "%";
-  console.log( typeof readyToApplyLife);
+  
 
   if ( (lifeBarsArray[1].style.width = readyToApplyLife) <= "0%" ) {
     lifeBarsArray[1].style.width = "0%";
-    alert("KO!");
+    //alert("KO!");
 
     setTimeout( cpuTurnDecision = () => {
       // After waiting for 3 seconds, call the function below.
@@ -251,14 +236,11 @@ const playerOneEatPizza = () => {
   let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
   let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let currentPlayerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
-  console.log('rival life clean: ', currentPlayerOneLifeCleanAndTypeNumber); // 75 (number type)
   const pizzaHealing = 15;
   let modifiedLifeTypeNumber = currentPlayerOneLifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
-  console.log(modifiedLifeTypeNumber);
 
   let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
   let readyToApplyLife = modifiedFormattedLife + "%";
-  console.log( typeof readyToApplyLife);
 
   if ( sessionStorage.getItem("isPlayerOnespell") === "true" ) {
     sessionStorage.setItem("isPlayerOnespell", "false");
@@ -281,7 +263,6 @@ const CPUattackPlayerOne = () => {
   let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
   let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let playerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
-  console.log('rival life clean: ', playerOneLifeCleanAndTypeNumber); // 75 (number type)
   
   const isCPUunderSpell = sessionStorage.getItem("isCPUspell");
   if (isCPUunderSpell) {
@@ -293,11 +274,9 @@ const CPUattackPlayerOne = () => {
     attackDamage = 30;
   }
   let modifiedLifeTypeNumber = playerOneLifeCleanAndTypeNumber - attackDamage; // cambio el valor
-  console.log(modifiedLifeTypeNumber);
 
   let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
   let readyToApplyLife = modifiedFormattedLife + "%";
-  console.log( typeof readyToApplyLife);
 
   if ( (lifeBarsArray[0].style.width = readyToApplyLife) <= "0%" ) {
     lifeBarsArray[0].style.width = "0%";
@@ -325,14 +304,11 @@ const CPUspellPlayerOne = () => {
   let playerOneLifeDirty = lifeBarsArray[0].style.width; // cojo el valor
   let playerOneLifeClean = playerOneLifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let playerOneLifeCleanAndTypeNumber = parseInt(playerOneLifeClean);
-  console.log('rival life clean: ', playerOneLifeCleanAndTypeNumber); // 75 (number type)
   const spellDamage = 20;
   let modifiedLifeTypeNumber = playerOneLifeCleanAndTypeNumber - spellDamage; // cambio el valor
-  console.log(modifiedLifeTypeNumber);
 
   let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
   let readyToApplyLife = modifiedFormattedLife + "%";
-  console.log( typeof readyToApplyLife);
 
   if ( (lifeBarsArray[0].style.width = readyToApplyLife) <= "0%" ) {
     lifeBarsArray[0].style.width = "0%";
@@ -366,14 +342,11 @@ const CPUeatPizza = () => {
   let CPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
   let CPUlifeClean = CPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
   let currentCPUlifeCleanAndTypeNumber = parseInt(CPUlifeClean);
-  console.log('rival life clean: ', currentCPUlifeCleanAndTypeNumber); // 75 (number type)
   const pizzaHealing = 15;
   let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
-  console.log(modifiedLifeTypeNumber);
 
   let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
   let readyToApplyLife = modifiedFormattedLife + "%";
-  console.log( typeof readyToApplyLife);
 
   if (  sessionStorage.getItem("isCPUspell") === "true" ) {
     sessionStorage.setItem("isCPUspell", "false");
@@ -401,17 +374,14 @@ buttonsArray.forEach( button => {
         startGameButton.classList.remove("remove-from-screen");
       }
     }
-    /* if attack button is clicked by player 1*/
     else if ( event.target.name === "attack" ) {
       playerOneAttackCPU();
     }
-    /* if spell button is clicked */
     else if ( event.target.name === "spell" ) {
       playerOneSpellCPU();
     }
-    /* if pizza button is clicked */
     else if ( event.target.name === "pizza" ) {
       playerOneEatPizza();      
-    }    
+    }
   })
 });

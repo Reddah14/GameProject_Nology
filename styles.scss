@@ -11,16 +11,33 @@ body {
   overflow-y: hidden;
 }
 
+
 .nav {
   background-color: darkgreen;
   height: 40px;
-
+  
+  &__rules {
+    margin-top: 9px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-decoration: none;
+    color: yellowgreen;
+    //border: 3px solid yellowgreen;
+  }
+  
   &__title {
     display: flex;
     justify-content: center;
     align-items: center;
     color: darkorange;
     font-size: 20px;
+  }
+  
+  &__sponsor {
+    margin-right: 0px;
+    align-items: center;
+    color: darkgoldenrod;
   }
 }
 
@@ -183,6 +200,7 @@ body {
 .remove-from-screen {
   display: none;
 }
+
 .final-giff {
   margin-top: 50px;
   margin-left: auto;

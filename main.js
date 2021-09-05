@@ -16,6 +16,24 @@ let turnCounterCPU = 0;
 let attackDamage = 30;
 let untilWhatTurnIsCPUspell = 0;
 let untilWhatTurnIsPlayerOnespell = 0;
+
+const displayingPlayerOneButtons = () => {
+  const playerOneButtonsArray = Object.values(buttonsArray).filter( button => {
+    return button.parentElement.className === "row gap-2 d-md-block battlefield__player1-buttons";
+  })
+  playerOneButtonsArray.forEach( button => {
+    button.classList.remove("remove-from-screen");
+  })
+}
+
+const removingPlayerOneButtons = () => {
+  const playerOneButtonsArray = Object.values(buttonsArray).filter( button => {
+    return button.parentElement.className === "row gap-2 d-md-block battlefield__player1-buttons";
+  })
+  playerOneButtonsArray.forEach( button => {
+    button.classList.add("remove-from-screen");
+  })
+}
 const removingSessionStorageSpellItems = () => {
   sessionStorage.removeItem("isPlayerOnespell");
   sessionStorage.removeItem("playerOneSpellCPUuntilTurn");
@@ -81,23 +99,16 @@ const startGame = () => {
   logPannel.innerText = "Fight ! ";
   mainDiv[0].classList.remove("remove-from-screen");
   const whoStarts = sessionStorage.getItem("whoStartTheGame");
-  const playerOneButtonsArray = Object.values(buttonsArray).filter( button => {
-    return button.parentElement.className === "row gap-2 d-md-block battlefield__player1-buttons";
-  })
 
   if ( whoStarts === "cpu" ) {
-    playerOneButtonsArray.forEach(button => {
-      button.classList.add("remove-from-screen");
-    })
-    setTimeout(function cpuTurnDecision() {
+    removingPlayerOneButtons();
+    setTimeout( () => {
       // After waiting for 3 seconds, call the function below.
       CPUselectRandomOption();
     }, 2000);
 
     setTimeout( () => {
-      playerOneButtonsArray.forEach(button => {
-        button.classList.remove("remove-from-screen");
-      })
+      displayingPlayerOneButtons();
     }, 2500);
   }
 }

@@ -233,42 +233,7 @@ const playerOneSpellCPU = () => {
   let playerOneSpellCPUuntilTurn = turnCounterPlayerOne + 2;
   sessionStorage.setItem("playerOneSpellCPUuntilTurn", playerOneSpellCPUuntilTurn);
   sessionStorage.setItem("isCPUspell", "true");
-
-  const regexOption = /\d+/g; // to select only numbers
-  let currentCPUlifeDirty = lifeBarsArray[1].style.width; // cojo el valor
-  let currentCPUlifeClean = currentCPUlifeDirty.match(regexOption); // currentLifeClean = ["100"]
-  let currentCPUlifeCleanAndTypeNumber = parseInt(currentCPUlifeClean);
-  
-  const spellDamage = 20;
-  let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber - spellDamage; // cambio el valor
-  
-
-  let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
-  let readyToApplyLife = modifiedFormattedLife + "%";
-  
-
-  if ( (lifeBarsArray[1].style.width = readyToApplyLife) <= "0%" ) {
-    lifeBarsArray[1].style.width = "0%";
-    //alert("KO!");
-
-    setTimeout( cpuTurnDecision = () => {
-      // After waiting for 3 seconds, call the function below.
-      logPannel.innerText = "Player 1 Wins ! 🎉🎉🎉";
-      reStartGameButton.classList.remove("remove-from-screen");
-      mainDiv[0].classList.add("remove-from-screen");
-      finalGiffSection[1].classList.remove("remove-from-screen");
-      grab_dataForEndFightGiff("winner");
-    }, 1500);    
-  } else {
-    displayingCpuRandomGiff();
-    grab_dataForCPUgiff("dog funny");
-
-    lifeBarsArray[1].style.width = readyToApplyLife;
-    printAtLogginPannel("Player 1 Spells✨ on rival giff for 2 more turns ! And takes 20 life points . . . .");
-    setTimeout( () => {
-      CPUselectRandomOption();
-    }, 3000);
-  }  
+  modifyLifebarPointsOfCpu("spell", 20);
 }
 
 const playerOneEatPizza = () => {

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+  <script src="./functions/requestRandomGiff-cpu.js"></script>
+  <script src="./functions/requestRandomGiff-playerOne.js"></script>
+  <script src="./functions/requestRandomGiff-endFight.js"></script>
+
+  <link rel="stylesheet" href="./styles.css">
+  <link rel="stylesheet" href="./rules.css">
+  <!-- <script src="./main.js" defer async></script> -->
+
+  <title>Game Project</title>
+</head>
+<body>
+
+  <nav class="row nav">
+    <div class="col-12 nav__title">
+      Beat Di Giff ! 🐱‍👤
+    </div>
+  </nav>
+
+  <header class="row header">
+    <section class="col-9 header__info">
+      <p class="header__info--logPannel">
+        <span>Rules of the Battle</span>
+        <hr>
+        <p class="rules-text">
+        <span>LIFE ARE 100 POINTS AT START OF THE BATTLE.</span><br><br>
+
+          <span>ATTACK BUTTON =></span> 30 Damage Points on opponent.<br>· ( If under "spell" does 15 Damage Points ) <br><br><br>
+          <span>SPELL BUTTON  =></span> 20 Damage Points on opponent.<br>· ( Spells opponent for 2 more turns. ) <br> · ( Also does some magic )<br><br>
+          <span>EAT PIZZA BUTTON =></span> Player recovers 15 life points.<br>· ( Can ONLY use it IF life is <= 50 ) <br> · ( Takes away spell effect on player )
+
+        </p>        
+
+        <button
+          class="col-12 btn btn-success header__info--logPannel-back-to-game"
+        >
+          <a href="./index.html">Back to Game</a>
+        </button>        
+      </p>
+    </section>
+  </header>
+
+</body>
+</html>

@@ -29,7 +29,7 @@ const choosingWhoStartsFirst = (randomNumberParam, buttonParam) => {
   }  
 }
 
-const cleaningLifearStringAndTurningIntoTypeNumber = (indexOfLifeBarParam) => {
+const cleaningLifeBarStringAndTurningIntoTypeNumber = (indexOfLifeBarParam) => {
   let lifebarDirtyAndString = lifeBarsArray[indexOfLifeBarParam].style.width;
   let lifebarCleanAndTypeString = lifebarDirtyAndString.match(regexOptionForOnlyNumbers);
   let lifebarCleanAndTypeNumber = parseInt(lifebarCleanAndTypeString);
@@ -48,7 +48,7 @@ const modifyLifebarPointsOfPlayerOne = (typeOfAttackParam, pointsToModifyParam) 
       return;
     }
     displayingCpuMainGiff();
-    let currentCPUlifeCleanAndTypeNumber = cleaningLifearStringAndTurningIntoTypeNumber(1);
+    let currentCPUlifeCleanAndTypeNumber = cleaningLifeBarStringAndTurningIntoTypeNumber(1);
     let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber + pizzaHealing;
     let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
     let readyToApplyLife = modifiedFormattedLife + "%";    
@@ -63,7 +63,7 @@ const modifyLifebarPointsOfPlayerOne = (typeOfAttackParam, pointsToModifyParam) 
 
     return;
   }
-  let playerOneLifeCleanAndTypeNumber = cleaningLifearStringAndTurningIntoTypeNumber(0);
+  let playerOneLifeCleanAndTypeNumber = cleaningLifeBarStringAndTurningIntoTypeNumber(0);
   const isCPUunderSpell = sessionStorage.getItem("isCPUspell");
   if (isCPUunderSpell) {
     untilWhatTurnIsCPUspell = sessionStorage.getItem("playerOneSpellCPUuntilTurn");
@@ -126,7 +126,7 @@ const modifyLifebarPointsOfCpu = (typeOfAttackParam, pointsToModifyParam) => {
     }
 
     displayingPlayerOneMainGiff();
-    let currentPlayerOneLifeCleanAndTypeNumber = cleaningLifearStringAndTurningIntoTypeNumber(0);
+    let currentPlayerOneLifeCleanAndTypeNumber = cleaningLifeBarStringAndTurningIntoTypeNumber(0);
     let modifiedLifeTypeNumber = currentPlayerOneLifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
     let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
     let readyToApplyLife = modifiedFormattedLife + "%";    
@@ -145,7 +145,7 @@ const modifyLifebarPointsOfCpu = (typeOfAttackParam, pointsToModifyParam) => {
     return;
   }
 
-  let currentCPUlifeCleanAndTypeNumber = cleaningLifearStringAndTurningIntoTypeNumber(1);
+  let currentCPUlifeCleanAndTypeNumber = cleaningLifeBarStringAndTurningIntoTypeNumber(1);
   const isPlayerOneunderSpell = sessionStorage.getItem("isPlayerOnespell");
   if (isPlayerOneunderSpell) {
     untilWhatTurnIsPlayerOnespell = sessionStorage.getItem("CPUSpellPlayerOneuntilTurn");

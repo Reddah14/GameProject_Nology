@@ -182,7 +182,7 @@ const modifyLifebarPointsOfCpu = (typeOfAttackParam, pointsToModifyParam) => {
       grab_dataForCPUgiff("dog funny");
       printAtLogPannel("Player 1 Spells✨ on rival giff for 2 more turns ! And takes 20 life points . . . .");
     } else if ( typeOfAttackParam === "attack" ) {
-      printAtLogPannel(`Player 1 Attacks 🗡🗡🗡 and takes ${attackDamage} life points . . . .`);
+      printAtLogPannel(`Player 1 Attacks 🗡🗡🗡 and takes ${pointsToModifyParam} life points . . . .`);
     }
     lifeBarsArray[1].style.width = readyToApplyLife;
     setTimeout( () => {

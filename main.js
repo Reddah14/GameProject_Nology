@@ -13,8 +13,6 @@ let attackDamage = 30;
 let untilWhatTurnIsCPUspell = 0;
 let untilWhatTurnIsPlayerOnespell = 0;
 
-//TODO: fix loggin pannel when attacking under spell (should say 15 damage not 30)
-
 const choosingWhoStartsFirst = (randomNumberParam, buttonParam) => {
   if ( randomNumberParam <= 5 ) {
     sessionStorage.setItem("whoStartTheGame", "player1");

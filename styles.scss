@@ -16,10 +16,7 @@ body {
 
 /* mobile */
 @media screen and (max-width: 599px) {
-    display: none;
-  }  
-}
-
+ 
   .nav {
     display: flex;
     align-items: center;
@@ -444,6 +441,7 @@ body {
   }
   
   .header {
+    height: 100px;
     display: flex;
     padding-top: 70px;
     justify-content: center;
@@ -506,14 +504,13 @@ body {
   }
   
   .battlefield {
-    display: inline-flex;
     width: 100%;
-    align-items: center;
+    align-items: flex-end;
     justify-content: center;
-    margin-top: 60px;
-  
+    padding-top: 37px;
+      
     &__player1 {
-      max-width: 285px;
+      max-width: 240px;
       margin-bottom: 237px;
   
       &-buttons {
@@ -545,7 +542,7 @@ body {
     }
   
     &__player2 {
-      max-width: 285px;
+      max-width: 240px;
       margin-top: 13px;
       margin-bottom: 237px;
   
@@ -554,7 +551,7 @@ body {
             border: 5px solid red;
             border-radius: 5px;
             position: relative;
-            width: 90% !important;
+            width: 240px;
           }
   
           &--replacement {

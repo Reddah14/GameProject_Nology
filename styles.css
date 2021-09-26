@@ -13,13 +13,7 @@ body {
 }
 
 /* mobile */
-@media screen and (max-width: 541px) {
-  .nav {
-    display: none;
-  }
-}
-/* desktop */
-@media screen and (min-width: 1025px) {
+@media screen and (max-width: 599px) {
   .nav {
     display: flex;
     align-items: center;
@@ -159,10 +153,6 @@ body {
     display: none;
   }
 
-  .add-margin-giff {
-    margin-top: 150px;
-  }
-
   .final-giff {
     margin-top: 50px;
     margin-left: auto;
@@ -176,7 +166,7 @@ body {
     border: 10px solid green;
   }
 }
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 600px) {
   .main-container {
     background-size: cover;
     margin-bottom: 18px;
@@ -212,9 +202,12 @@ body {
 
   .header {
     display: flex;
+    margin: auto;
+    padding-top: 70px;
     justify-content: center;
     background-color: transparent;
-    margin-top: 15%;
+    margin-top: 0%;
+    max-width: 800px;
   }
   .header__info {
     padding: 30px;
@@ -269,20 +262,18 @@ body {
     height: 60vh;
     margin-top: 10px;
   }
-  .battlefield__player1 {
-    background-color: transparent;
-  }
   .battlefield__player1-buttons {
+    margin: 10px;
     display: flex;
   }
   .battlefield__player1-buttons--attack {
-    margin-bottom: 3px;
+    margin-bottom: 14px;
   }
   .battlefield__player1-buttons--spell {
-    margin-bottom: 3px;
+    margin-bottom: 14px;
   }
   .battlefield__player1-buttons--pizza {
-    margin-bottom: 8px;
+    margin-bottom: 14px;
   }
   .battlefield__player1-gif {
     margin-top: auto;
@@ -340,6 +331,164 @@ body {
 
   .remove-from-screen {
     display: none;
+  }
+
+  .final-giff {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    width: 400px;
+  }
+  .final-giff--frame {
+    display: flex;
+    justify-content: center;
+    border: 10px solid green;
+  }
+}
+/* desktop */
+@media screen and (min-width: 1025px) {
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkgreen;
+    height: 55px;
+  }
+  .nav__rules {
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    color: yellowgreen;
+  }
+  .nav__title {
+    display: flex;
+    justify-content: center;
+    color: darkorange;
+    font-size: 20px;
+  }
+  .nav__sponsor {
+    margin-right: 0px;
+    color: darkgoldenrod;
+  }
+
+  .header {
+    height: 100px;
+    display: flex;
+    padding-top: 70px;
+    justify-content: center;
+    background-color: transparent;
+    max-width: 800px;
+    margin-bottom: 9%;
+  }
+  .header__info {
+    padding: 30px;
+    border-radius: 7px;
+    background-color: darksalmon;
+    width: 86%;
+  }
+  .header__info--logPannel {
+    text-align: center;
+    color: rebeccapurple;
+    font-family: monospace;
+    font-size: 20px;
+  }
+  .header__info--logPannel > span {
+    font-size: 30px;
+    color: black;
+  }
+  .header__info--logPannel-choose-player-btn {
+    display: flex;
+    justify-content: center;
+    max-width: 289px;
+    margin-left: auto;
+    margin-right: auto;
+    color: darkcyan;
+    font-family: monospace;
+    font-size: 19px;
+    font-weight: bolder;
+  }
+  .header__info--logPannel-start-game-btn {
+    display: flex;
+    justify-content: center;
+    max-width: 289px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: monospace;
+    font-size: 19px;
+    font-weight: bolder;
+  }
+  .header__info--logPannel-restart-game-btn {
+    display: flex;
+    justify-content: center;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: monospace;
+    font-size: 19px;
+    font-weight: bolder;
+  }
+
+  .battlefield {
+    width: 100%;
+    align-items: flex-end;
+    justify-content: center;
+    padding-top: 37px;
+  }
+  .battlefield__player1 {
+    max-width: 240px;
+    margin-bottom: 237px;
+  }
+  .battlefield__player1-buttons {
+    margin: 10px;
+  }
+  .battlefield__player1-buttons--attack {
+    margin-bottom: 7px;
+  }
+  .battlefield__player1-buttons--spell {
+    margin-bottom: 7px;
+  }
+  .battlefield__player1-gif {
+    margin-bottom: 7px;
+  }
+  .battlefield__player1-gif--frame {
+    border: 5px solid blue;
+    border-radius: 5px;
+  }
+  .battlefield__player1-gif--replacement {
+    min-width: 100%;
+    max-height: 350px;
+    border: 10px solid green;
+  }
+  .battlefield__player2 {
+    max-width: 240px;
+    margin-top: 13px;
+    margin-bottom: 237px;
+  }
+  .battlefield__player2-gif--frame {
+    border: 5px solid red;
+    border-radius: 5px;
+    position: relative;
+    width: 240px;
+  }
+  .battlefield__player2-gif--replacement {
+    border: 10px solid yellow;
+    width: 225px;
+    height: 300px;
+    min-width: 100%;
+    max-height: 460px;
+    margin-top: 186px;
+  }
+  .battlefield__player2--lifebar-row {
+    margin-top: 7px;
+  }
+
+  .remove-from-screen {
+    display: none;
+  }
+
+  .add-margin-giff {
+    margin-top: 150px;
   }
 
   .final-giff {

@@ -15,16 +15,12 @@ body {
 //TODO: fix styles for mobile and desktop
 
 /* mobile */
-@media screen and (max-width: 541px) {
-  .nav {
+@media screen and (max-width: 599px) {
     display: none;
   }  
 }
 
-/* desktop */
-@media screen and (min-width: 1025px) {
   .nav {
-    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -206,7 +202,7 @@ body {
 }
 
 // tablet
-@media screen and (max-width: 1024px) {
+@media screen and (min-width: 600px) {
   .main-container {
     background-size: cover;
     margin-bottom: 18px;
@@ -417,3 +413,8 @@ body {
   }  
 
 }
+
+/* desktop */
+@media screen and (min-width: 1025px) {
+  .nav {
+    

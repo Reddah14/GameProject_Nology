@@ -2,7 +2,7 @@
   display: flex;
   justify-content: center;
   background-color: transparent;
-  margin-top: 15%;
+  margin-top: 16%;
 
   &__info {
     padding: 30px;
@@ -55,4 +55,38 @@
       }
     }
   }
+}
+
+// mobile
+@media screen and (max-width: 599px) {
+  .header__info {
+    padding: 19px;
+    border-radius: 7px;
+    background-color: darksalmon;
+    font-size: 10px;
+
+    &--logPannel {
+      > span {
+        text-align: center;
+        font-size: 26px;
+        color:black;
+      }
+    }
+    
+    > p {
+      font-size: 12px;
+    }
+  }
+}
+
+//tablet
+@media screen and (min-width: 600px) {
+  .header {
+    margin-top: 45px;
+    padding-top: 0px;
+  }
+
+  .header__info {
+    padding: 23px;
+}
 }

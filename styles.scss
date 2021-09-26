@@ -23,6 +23,7 @@ body {
 /* desktop */
 @media screen and (min-width: 1025px) {
   .nav {
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -62,6 +63,7 @@ body {
       padding: 30px;
       border-radius: 7px;
       background-color: darksalmon;
+      width: 86%;
   
       &--logPannel {
         text-align: center;

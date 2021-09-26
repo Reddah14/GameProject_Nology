@@ -259,7 +259,7 @@ body {
   .battlefield {
     display: flex;
     align-items: flex-end;
-    height: 60vh;
+    height: 67vh;
     margin-top: 10px;
   }
   .battlefield__player1-buttons {
@@ -433,7 +433,8 @@ body {
     width: 100%;
     align-items: flex-end;
     justify-content: center;
-    padding-top: 37px;
+    padding-top: 4px;
+    margin-top: 148px;
   }
   .battlefield__player1 {
     max-width: 240px;
@@ -452,7 +453,7 @@ body {
     margin-bottom: 7px;
   }
   .battlefield__player1-gif--frame {
-    border: 5px solid blue;
+    border: 8px solid blue;
     border-radius: 5px;
   }
   .battlefield__player1-gif--replacement {
@@ -466,7 +467,7 @@ body {
     margin-bottom: 237px;
   }
   .battlefield__player2-gif--frame {
-    border: 5px solid red;
+    border: 8px solid red;
     border-radius: 5px;
     position: relative;
     width: 240px;
@@ -499,6 +500,7 @@ body {
     width: 400px;
   }
   .final-giff--frame {
+    margin-top: 100px;
     display: flex;
     justify-content: center;
     border: 10px solid green;

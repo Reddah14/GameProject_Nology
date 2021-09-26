@@ -298,7 +298,7 @@ body {
   .battlefield {
     display: flex;
     align-items: flex-end;
-    height: 60vh;
+    height: 67vh;
     margin-top: 10px;
   
     &__player1 {
@@ -507,7 +507,8 @@ body {
     width: 100%;
     align-items: flex-end;
     justify-content: center;
-    padding-top: 37px;
+    padding-top: 4px;
+    margin-top: 148px;
       
     &__player1 {
       max-width: 240px;
@@ -529,7 +530,7 @@ body {
         margin-bottom: 7px;
 
         &--frame {
-          border: 5px solid blue;
+          border: 8px solid blue;
           border-radius: 5px;
         }        
   
@@ -548,7 +549,7 @@ body {
   
       &-gif {  
           &--frame {
-            border: 5px solid red;
+            border: 8px solid red;
             border-radius: 5px;
             position: relative;
             width: 240px;
@@ -587,6 +588,7 @@ body {
     width: 400px;
     
     &--frame {
+      margin-top: 100px;
       display: flex;
       justify-content: center;
       border: 10px solid green;

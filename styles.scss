@@ -305,21 +305,21 @@ body {
     margin-top: 10px;
   
     &__player1 {
-      background-color: transparent;
   
       &-buttons {
+        margin: 10px;
         display: flex;
   
         &--attack {
-          margin-bottom: 3px;
+          margin-bottom: 14px;
         }
   
         &--spell {
-          margin-bottom: 3px;
+          margin-bottom: 14px;
         }
         
         &--pizza {
-          margin-bottom: 8px;
+          margin-bottom: 14px;
         }      
       }
   

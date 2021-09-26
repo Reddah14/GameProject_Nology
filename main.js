@@ -22,7 +22,7 @@ const choosingWhoStartsFirst = (randomNumberParam, buttonParam) => {
   } else {
     sessionStorage.setItem("whoStartTheGame", "cpu");
     printAtLogPannel("CPU Starts !");
-    event.target.classList.add("remove-from-screen");
+    buttonParam.classList.add("remove-from-screen");
     startGameButton.classList.remove("remove-from-screen");
   }  
 }

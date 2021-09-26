@@ -16,17 +16,30 @@ body {
 
 /* mobile */
 @media screen and (max-width: 599px) {
- 
+  .main-container {
+    background-size: cover;
+    margin-bottom: 18px;
+  }
+
   .nav {
     display: flex;
     align-items: center;
-    justify-content: center;
     background-color: darkgreen;
     height: 55px;
+    font-size: 13px;
+    padding-left: 10px;
+    padding-right: 18px;
+    padding-bottom: 6px;
     
+    a:hover {
+      color: whitesmoke !important;
+    }
+
     &__rules {
+      margin-top: 9px;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
+      align-items: center;
       text-decoration: none;
       color: yellowgreen;
     }
@@ -34,39 +47,39 @@ body {
     &__title {
       display: flex;
       justify-content: center;
+      align-items: center;
       color: darkorange;
       font-size: 20px;
     }
     
     &__sponsor {
       margin-right: 0px;
+      display: inline;
+      align-items: center;
       color: darkgoldenrod;
     }
   }
   
   .header {
-    display: flex;
     margin: auto;
-    padding-top: 70px;
+    padding-top: 20px;
     justify-content: center;
-    background-color: transparent;
-    margin-top: 0%;
-    max-width: 800px;
+    height: 15%;
   
     &__info {
-      padding: 30px;
+      width: 80%;
+      padding: 19px;
       border-radius: 7px;
       background-color: darksalmon;
-      width: 86%;
   
       &--logPannel {
         text-align: center;
         color: rebeccapurple;
         font-family: monospace;
-        font-size: 20px;
+        font-size: 13px;
   
         > span {
-          font-size: 30px;
+          font-size: 23px;
           color:black;
         }
   
@@ -78,7 +91,7 @@ body {
           margin-right: auto;
           color: darkcyan;
           font-family: monospace;
-          font-size: 19px;
+          font-size: 14px;
           font-weight: bolder;
         }
   
@@ -89,7 +102,7 @@ body {
           margin-left: auto;
           margin-right: auto;
           font-family: monospace;
-          font-size: 19px;
+          font-size: 14px;
           font-weight: bolder;
         }
         
@@ -100,7 +113,7 @@ body {
           margin-left: auto;
           margin-right: auto;
           font-family: monospace;
-          font-size: 19px;
+          font-size: 14px;
           font-weight: bolder;
         }      
       }
@@ -108,69 +121,102 @@ body {
   }
   
   .battlefield {
-    display: inline-flex;
-    width: 100%;
-    align-items: center;
+    display: flex;
+    align-items: flex-end;
     justify-content: center;
-    margin-top: 60px;
+    height: 60vh;
+    margin-top: 70px;
   
     &__player1 {
-      max-width: 285px;
-      margin-bottom: 237px;
-  
+      display: grid;
+      max-width: 235px;
+
       &-buttons {
-        margin: 10px;
-           
+        display: flex;
+  
         &--attack {
-          margin-bottom: 7px;
+          margin-bottom: 14px;
+          height: 55px;
         }
   
         &--spell {
-          margin-bottom: 7px;
-       }
+          margin-bottom: 14px;
+          height: 55px;
+        }
+        
+        &--pizza {
+          margin-bottom: 14px;
+          height: 55px;
+        }      
       }
   
       &-gif {
-        margin-bottom: 7px;
-
-        &--frame {
-          border: 5px solid blue;
-          border-radius: 5px;
-        }        
+        margin-top: auto;
+        height: auto;
+        width: 160px;
+  
+          &--frame {
+            border: 7px solid blue;
+            border-radius: 5px;
+          }
   
           &--replacement {
-            min-width: 100%;
-            max-height: 350px;
-            border: 10px solid green;
+            width: 100%;
+            height: 100%;
+            border: 9px solid green;
           }        
+      }
+  
+      &--lifebar-row {
+        width: 100%;
+        margin-top: 5px;
       }
     }
   
     &__player2 {
-      max-width: 285px;
-      margin-bottom: 237px;
+      display: grid;
+      justify-content: end;
+      max-width: 235px;
+      margin-right: 24px;
+
+      &-buttons {
+        
+        &--attack {
+          display: none;
+          margin-bottom: 3px;
+        }
   
-      &-gif {  
+        &--spell {
+          display: none;
+          margin-bottom: 3px;
+        }
+        
+        &--pizza {
+          display: none;
+          margin-bottom: 8px;
+        }      
+      }
+  
+      &-gif {
+        margin-top: auto;
+        height: auto;
+        width: 160px;
+  
           &--frame {
-            border: 5px solid red;
+            border: 7px solid red;
             border-radius: 5px;
-            position: relative;
-            width: 90% !important;
           }
   
           &--replacement {
-            border: 10px solid yellow;
-            width: 225px;
-            height: 300px;
-            min-width: 100%;
-            max-height: 460px;
-            margin-top: 200px;           
-
+            width: 100%;
+            height: 100%;
+            border: 9px solid yellow;
           }
-      }
+        }
   
       &--lifebar-row {
-        margin-top: 7px;
+        width: 100%;
+        margin-top: 5px;
       }
     }  
   }
@@ -180,18 +226,17 @@ body {
   }
   
   .final-giff {
-    margin-top: 50px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 350px;
-    width: 400px;
-    
+    padding-top: 105px;
+
     &--frame {
       display: flex;
       justify-content: center;
+      width: 300px !important;
+      height: 300px !important;
+      margin: auto;
       border: 10px solid green;
     }
-  }  
+  } 
 }
 
 // tablet

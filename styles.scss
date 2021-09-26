@@ -111,6 +111,71 @@ body {
     }
   }
   
+  .battlefield {
+/*     display: flex;
+    align-items: flex-end;
+    height: 70vh;
+    max-height: 800px;
+    margin-top: auto; */
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+  
+    &__player1 {
+/*       background-color: transparent;
+      margin: auto; */
+      max-width: 285px;
+      margin-bottom: 237px;
+  
+      &-buttons {
+        margin: 10px;
+
+/*         display: flex;
+ */            
+        &--attack {
+          margin-bottom: 7px;
+
+/*           margin-bottom: 3px;
+ */        }
+  
+        &--spell {
+          margin-bottom: 7px;
+
+/*           margin-bottom: 3px;
+ */        }
+        
+        &--pizza {
+/*           margin-bottom: 8px;
+ */        }      
+      }
+  
+      &-gif {
+        margin-bottom: 7px;
+/*         margin-top: auto;
+        height: auto;
+        width: 90%;
+        background-color: transparent; */
+  
+          &--frame {
+/*             border: 5px solid blue;
+            border-radius: 5px; */
+          }
+  
+          &--replacement {
+/*             width: 240px;
+            height: 200px;
+            border: 10px solid green; */
+          }        
+      }
+  
+      &--lifebar-row {
+/*         width: 100%;
+        margin-top: 5px; */
+      }
+    }
+  
     display: none;
   }
 }

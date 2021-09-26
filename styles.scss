@@ -11,206 +11,402 @@ body {
   overflow-y: hidden;
 }
 
+//TODO: fix styles for mobile and desktop
 
-.nav {
-  background-color: darkgreen;
-  height: 40px;
-  
-  &__rules {
-    margin-top: 9px;
+/* mobile */
+@media screen and (max-width: 541px) {
+  .nav {
+    display: none;
+  }  
+}
+
+/* desktop */
+@media screen and (min-width: 1025px) {
+  .nav {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    text-decoration: none;
-    color: yellowgreen;
-    //border: 3px solid yellowgreen;
-  }
-  
-  &__title {
-    display: flex;
     justify-content: center;
-    align-items: center;
-    color: darkorange;
-    font-size: 20px;
+    background-color: darkgreen;
+    height: 55px;
+    
+    &__rules {
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+      color: yellowgreen;
+    }
+    
+    &__title {
+      display: flex;
+      justify-content: center;
+      color: darkorange;
+      font-size: 20px;
+    }
+    
+    &__sponsor {
+      margin-right: 0px;
+      color: darkgoldenrod;
+    }
   }
   
-  &__sponsor {
-    margin-right: 0px;
-    align-items: center;
-    color: darkgoldenrod;
-  }
-}
-
-.header {
-  display: flex;
-  justify-content: center;
-  background-color: transparent;
-  margin-top: 15%;
-
-  &__info {
-    padding: 30px;
-    border-radius: 7px;
-    background-color: darksalmon;
-
-    &--logPannel {
-      text-align: center;
-      color: rebeccapurple;
-      font-family: monospace;
-      font-size: 20px;
-
-      > span {
-        font-size: 30px;
-        color:black;
-      }
-
-      &-choose-player-btn {
-        display: flex;
-        justify-content: center;
-        max-width: 289px;
-        margin-left: auto;
-        margin-right: auto;
-        color: darkcyan;
-        font-family: monospace;
-        font-size: 19px;
-        font-weight: bolder;
-      }
-
-      &-start-game-btn {
-        display: flex;
-        justify-content: center;
-        max-width: 289px;
-        margin-left: auto;
-        margin-right: auto;
-        font-family: monospace;
-        font-size: 19px;
-        font-weight: bolder;
-      }
-      
-      &-restart-game-btn {
-        display: flex;
-        justify-content: center;
-        max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-        font-family: monospace;
-        font-size: 19px;
-        font-weight: bolder;
-      }      
-    }
-  }
-}
-
-.battlefield {
-  display: flex;
-  align-items: flex-end;
-  height: 60vh;
-  margin-top: 10px;
-
-  &__player1 {
+  .header {
+    display: flex;
+    margin: auto;
+    padding-top: 70px;
+    justify-content: center;
     background-color: transparent;
-
-    &-buttons {
-      display: flex;
-
-      &--attack {
-        margin-bottom: 3px;
+    margin-top: 0%;
+    max-width: 800px;
+  
+    &__info {
+      padding: 30px;
+      border-radius: 7px;
+      background-color: darksalmon;
+  
+      &--logPannel {
+        text-align: center;
+        color: rebeccapurple;
+        font-family: monospace;
+        font-size: 20px;
+  
+        > span {
+          font-size: 30px;
+          color:black;
+        }
+  
+        &-choose-player-btn {
+          display: flex;
+          justify-content: center;
+          max-width: 289px;
+          margin-left: auto;
+          margin-right: auto;
+          color: darkcyan;
+          font-family: monospace;
+          font-size: 19px;
+          font-weight: bolder;
+        }
+  
+        &-start-game-btn {
+          display: flex;
+          justify-content: center;
+          max-width: 289px;
+          margin-left: auto;
+          margin-right: auto;
+          font-family: monospace;
+          font-size: 19px;
+          font-weight: bolder;
+        }
+        
+        &-restart-game-btn {
+          display: flex;
+          justify-content: center;
+          max-width: 300px;
+          margin-left: auto;
+          margin-right: auto;
+          font-family: monospace;
+          font-size: 19px;
+          font-weight: bolder;
+        }      
       }
-
-      &--spell {
-        margin-bottom: 3px;
-      }
-      
-      &--pizza {
-        margin-bottom: 8px;
-      }      
     }
-
-    &-gif {
-      margin-top: auto;
-      height: auto;
-      width: auto;
-      background-color: transparent;
+  }
+  
+  .battlefield {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+  
+    &__player1 {
+      max-width: 285px;
+      margin-bottom: 237px;
+  
+      &-buttons {
+        margin: 10px;
+           
+        &--attack {
+          margin-bottom: 7px;
+        }
+  
+        &--spell {
+          margin-bottom: 7px;
+       }
+      }
+  
+      &-gif {
+        margin-bottom: 7px;
 
         &--frame {
           border: 5px solid blue;
           border-radius: 5px;
-        }
-
-        &--replacement {
-          width: 240px;
-          height: 200px;
-          border: 10px solid green;
         }        
+  
+          &--replacement {
+            min-width: 100%;
+            max-height: 350px;
+            border: 10px solid green;
+          }        
+      }
     }
+  
+    &__player2 {
+      max-width: 285px;
+      margin-bottom: 237px;
+  
+      &-gif {  
+          &--frame {
+            border: 5px solid red;
+            border-radius: 5px;
+            position: relative;
+            width: 90% !important;
+          }
+  
+          &--replacement {
+            border: 10px solid yellow;
+            width: 225px;
+            height: 300px;
+            min-width: 100%;
+            max-height: 460px;
+            margin-top: 200px;           
 
-    &--lifebar-row {
-      width: 100%;
-      margin-top: 5px;
-    }
+          }
+      }
+  
+      &--lifebar-row {
+        margin-top: 7px;
+      }
+    }  
+  }
+  
+  .remove-from-screen {
+    display: none;
   }
 
-  &__player2 {
-    background-color: transparent;
-
-    &-buttons {
-      
-      &--attack {
-        display: none;
-        margin-bottom: 3px;
-      }
-
-      &--spell {
-        display: none;
-        margin-bottom: 3px;
-      }
-      
-      &--pizza {
-        display: none;
-        margin-bottom: 8px;
-      }      
-    }
-
-    &-gif {
-      margin-top: auto;
-      height: auto;
-      width: auto;
-      background-color: transparent;
-
-        &--frame {
-          //display: none;
-          border: 5px solid red;
-          border-radius: 5px;
-        }
-
-        &--replacement {
-          //display: none;
-          width: 240px;
-          height:200px;
-          border: 10px solid yellow;
-        }
-      }
-
-    &--lifebar-row {
-      width: 100%;
-      margin-top: 5px;
+  .add-margin-giff {
+    margin-top: 150px;
+  }
+  
+  .final-giff {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    width: 400px;
+    
+    &--frame {
+      display: flex;
+      justify-content: center;
+      border: 10px solid green;
     }
   }  
 }
 
-.remove-from-screen {
-  display: none;
-}
+// tablet
+@media screen and (max-width: 1024px) {
 
-.final-giff {
-  margin-top: 50px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 350px;
-  width: 400px;
+  .nav {
+    display: flex;
+    align-items: center;
+    background-color: darkgreen;
+    height: 55px;
+    
+    &__rules {
+      margin-top: 9px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      text-decoration: none;
+      color: yellowgreen;
+      //border: 3px solid yellowgreen;
+    }
+    
+    &__title {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: darkorange;
+      font-size: 20px;
+    }
+    
+    &__sponsor {
+      margin-right: 0px;
+      display: inline;
+      align-items: center;
+      color: darkgoldenrod;
+    }
+  }
   
-  &--frame {
+  .header {
     display: flex;
     justify-content: center;
-    border: 10px solid green;
+    background-color: transparent;
+    margin-top: 15%;
+  
+    &__info {
+      padding: 30px;
+      border-radius: 7px;
+      background-color: darksalmon;
+  
+      &--logPannel {
+        text-align: center;
+        color: rebeccapurple;
+        font-family: monospace;
+        font-size: 20px;
+  
+        > span {
+          font-size: 30px;
+          color:black;
+        }
+  
+        &-choose-player-btn {
+          display: flex;
+          justify-content: center;
+          max-width: 289px;
+          margin-left: auto;
+          margin-right: auto;
+          color: darkcyan;
+          font-family: monospace;
+          font-size: 19px;
+          font-weight: bolder;
+        }
+  
+        &-start-game-btn {
+          display: flex;
+          justify-content: center;
+          max-width: 289px;
+          margin-left: auto;
+          margin-right: auto;
+          font-family: monospace;
+          font-size: 19px;
+          font-weight: bolder;
+        }
+        
+        &-restart-game-btn {
+          display: flex;
+          justify-content: center;
+          max-width: 300px;
+          margin-left: auto;
+          margin-right: auto;
+          font-family: monospace;
+          font-size: 19px;
+          font-weight: bolder;
+        }      
+      }
+    }
   }
+  
+  .battlefield {
+    display: flex;
+    align-items: flex-end;
+    height: 60vh;
+    margin-top: 10px;
+  
+    &__player1 {
+      background-color: transparent;
+  
+      &-buttons {
+        display: flex;
+  
+        &--attack {
+          margin-bottom: 3px;
+        }
+  
+        &--spell {
+          margin-bottom: 3px;
+        }
+        
+        &--pizza {
+          margin-bottom: 8px;
+        }      
+      }
+  
+      &-gif {
+        margin-top: auto;
+        height: auto;
+        width: auto;
+        background-color: transparent;
+  
+          &--frame {
+            border: 5px solid blue;
+            border-radius: 5px;
+          }
+  
+          &--replacement {
+            width: 240px;
+            height: 200px;
+            border: 10px solid green;
+          }        
+      }
+  
+      &--lifebar-row {
+        width: 100%;
+        margin-top: 5px;
+      }
+    }
+  
+    &__player2 {
+      background-color: transparent;
+  
+      &-buttons {
+        
+        &--attack {
+          display: none;
+          margin-bottom: 3px;
+        }
+  
+        &--spell {
+          display: none;
+          margin-bottom: 3px;
+        }
+        
+        &--pizza {
+          display: none;
+          margin-bottom: 8px;
+        }      
+      }
+  
+      &-gif {
+        margin-top: auto;
+        height: auto;
+        width: auto;
+        background-color: transparent;
+  
+          &--frame {
+            border: 5px solid red;
+            border-radius: 5px;
+          }
+  
+          &--replacement {
+            width: 240px;
+            height:200px;
+            border: 10px solid yellow;
+          }
+        }
+  
+      &--lifebar-row {
+        width: 100%;
+        margin-top: 5px;
+      }
+    }  
+  }
+  
+  .remove-from-screen {
+    display: none;
+  }
+  
+  .final-giff {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    width: 400px;
+    
+    &--frame {
+      display: flex;
+      justify-content: center;
+      border: 10px solid green;
+    }
+  }  
+
 }

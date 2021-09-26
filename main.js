@@ -13,8 +13,6 @@ let attackDamage = 30;
 let untilWhatTurnIsCPUspell = 0;
 let untilWhatTurnIsPlayerOnespell = 0;
 
-//TODO: fix loggin pannel when attacking under spell (should say 15 damage not 30)
-
 const choosingWhoStartsFirst = (randomNumberParam, buttonParam) => {
   if ( randomNumberParam <= 5 ) {
     sessionStorage.setItem("whoStartTheGame", "player1");
@@ -24,12 +22,12 @@ const choosingWhoStartsFirst = (randomNumberParam, buttonParam) => {
   } else {
     sessionStorage.setItem("whoStartTheGame", "cpu");
     printAtLogPannel("CPU Starts !");
-    event.target.classList.add("remove-from-screen");
+    buttonParam.classList.add("remove-from-screen");
     startGameButton.classList.remove("remove-from-screen");
   }  
 }
 
-const cleaningLifearStringAndTurningIntoTypeNumber = (indexOfLifeBarParam) => {
+const cleaningLifeBarStringAndTurningIntoTypeNumber = (indexOfLifeBarParam) => {
   let lifebarDirtyAndString = lifeBarsArray[indexOfLifeBarParam].style.width;
   let lifebarCleanAndTypeString = lifebarDirtyAndString.match(regexOptionForOnlyNumbers);
   let lifebarCleanAndTypeNumber = parseInt(lifebarCleanAndTypeString);
@@ -48,7 +46,7 @@ const modifyLifebarPointsOfPlayerOne = (typeOfAttackParam, pointsToModifyParam) 
       return;
     }
     displayingCpuMainGiff();
-    let currentCPUlifeCleanAndTypeNumber = cleaningLifearStringAndTurningIntoTypeNumber(1);
+    let currentCPUlifeCleanAndTypeNumber = cleaningLifeBarStringAndTurningIntoTypeNumber(1);
     let modifiedLifeTypeNumber = currentCPUlifeCleanAndTypeNumber + pizzaHealing;
     let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
     let readyToApplyLife = modifiedFormattedLife + "%";    
@@ -63,7 +61,7 @@ const modifyLifebarPointsOfPlayerOne = (typeOfAttackParam, pointsToModifyParam) 
 
     return;
   }
-  let playerOneLifeCleanAndTypeNumber = cleaningLifearStringAndTurningIntoTypeNumber(0);
+  let playerOneLifeCleanAndTypeNumber = cleaningLifeBarStringAndTurningIntoTypeNumber(0);
   const isCPUunderSpell = sessionStorage.getItem("isCPUspell");
   if (isCPUunderSpell) {
     untilWhatTurnIsCPUspell = sessionStorage.getItem("playerOneSpellCPUuntilTurn");
@@ -95,7 +93,7 @@ const modifyLifebarPointsOfPlayerOne = (typeOfAttackParam, pointsToModifyParam) 
     }, 1500);
   } else {
     if ( typeOfAttackParam === "attack" ) {
-      printAtLogPannel(`CPU Attacks!! 🗡🗡🗡 on Player 1 ! And takes ${attackDamage} life points . . . .`);
+      printAtLogPannel(`CPU Attacks!! 🗡🗡🗡 on Player 1 ! And takes ${pointsToModifyParam} life points . . . .`);
       lifeBarsArray[0].style.width = readyToApplyLife;
 
       return;
@@ -126,7 +124,7 @@ const modifyLifebarPointsOfCpu = (typeOfAttackParam, pointsToModifyParam) => {
     }
 
     displayingPlayerOneMainGiff();
-    let currentPlayerOneLifeCleanAndTypeNumber = cleaningLifearStringAndTurningIntoTypeNumber(0);
+    let currentPlayerOneLifeCleanAndTypeNumber = cleaningLifeBarStringAndTurningIntoTypeNumber(0);
     let modifiedLifeTypeNumber = currentPlayerOneLifeCleanAndTypeNumber + pizzaHealing; // cambio el valor
     let modifiedFormattedLife = modifiedLifeTypeNumber.toString();
     let readyToApplyLife = modifiedFormattedLife + "%";    
@@ -145,7 +143,7 @@ const modifyLifebarPointsOfCpu = (typeOfAttackParam, pointsToModifyParam) => {
     return;
   }
 
-  let currentCPUlifeCleanAndTypeNumber = cleaningLifearStringAndTurningIntoTypeNumber(1);
+  let currentCPUlifeCleanAndTypeNumber = cleaningLifeBarStringAndTurningIntoTypeNumber(1);
   const isPlayerOneunderSpell = sessionStorage.getItem("isPlayerOnespell");
   if (isPlayerOneunderSpell) {
     untilWhatTurnIsPlayerOnespell = sessionStorage.getItem("CPUSpellPlayerOneuntilTurn");
@@ -182,7 +180,7 @@ const modifyLifebarPointsOfCpu = (typeOfAttackParam, pointsToModifyParam) => {
       grab_dataForCPUgiff("dog funny");
       printAtLogPannel("Player 1 Spells✨ on rival giff for 2 more turns ! And takes 20 life points . . . .");
     } else if ( typeOfAttackParam === "attack" ) {
-      printAtLogPannel(`Player 1 Attacks 🗡🗡🗡 and takes ${attackDamage} life points . . . .`);
+      printAtLogPannel(`Player 1 Attacks 🗡🗡🗡 and takes ${pointsToModifyParam} life points . . . .`);
     }
     lifeBarsArray[1].style.width = readyToApplyLife;
     setTimeout( () => {
@@ -204,6 +202,16 @@ const displayingPlayerOneButtons = () => {
   })
 }
 
+const controlMarginPlayerOneGiff = (controlParam) => {
+  if (controlParam === "add") {
+    const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
+    playerOneMainGiff.classList.add("add-margin-giff");    
+  } else if (controlParam === "remove") {
+    const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
+    playerOneMainGiff.classList.remove("add-margin-giff");  
+  }
+}
+
 const removingPlayerOneButtons = () => {
   const playerOneButtonsArray = Object.values(buttonsArray).filter( button => {
     return button.parentElement.className === "row gap-2 d-md-block battlefield__player1-buttons";
@@ -211,6 +219,9 @@ const removingPlayerOneButtons = () => {
   playerOneButtonsArray.forEach( button => {
     button.classList.add("remove-from-screen");
   })
+  controlMarginPlayerOneGiff("add");
+
+  return;
 }
 
 const resettingLifesToHundredPoints = () => {
@@ -289,12 +300,12 @@ const startGame = () => {
   if ( whoStarts === "cpu" ) {
     removingPlayerOneButtons();
     setTimeout( () => {
-      // After waiting for 3 seconds, call the function below.
       CPUselectRandomOption();
     }, 2000);
 
     setTimeout( () => {
       displayingPlayerOneButtons();
+      controlMarginPlayerOneGiff("remove");
     }, 2500);
   }
 }

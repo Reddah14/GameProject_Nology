@@ -23,6 +23,31 @@ body {
 /* desktop */
 @media screen and (min-width: 1025px) {
   .nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkgreen;
+    height: 55px;
+    
+    &__rules {
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+      color: yellowgreen;
+    }
+    
+    &__title {
+      display: flex;
+      justify-content: center;
+      color: darkorange;
+      font-size: 20px;
+    }
+    
+    &__sponsor {
+      margin-right: 0px;
+      color: darkgoldenrod;
+    }
+  }
     display: none;
   }
 }

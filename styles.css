@@ -56,7 +56,7 @@ body {
 
   .header {
     margin: auto;
-    padding-top: 20px;
+    padding-top: 42px;
     justify-content: center;
     height: 15%;
   }
@@ -260,7 +260,7 @@ body {
     text-align: center;
     color: rebeccapurple;
     font-family: monospace;
-    font-size: 20px;
+    font-size: 27px;
   }
   .header__info--logPannel > span {
     font-size: 30px;

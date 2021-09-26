@@ -418,3 +418,182 @@ body {
 @media screen and (min-width: 1025px) {
   .nav {
     
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: darkgreen;
+    height: 55px;
+    
+    &__rules {
+      display: flex;
+      justify-content: center;
+      text-decoration: none;
+      color: yellowgreen;
+    }
+    
+    &__title {
+      display: flex;
+      justify-content: center;
+      color: darkorange;
+      font-size: 20px;
+    }
+    
+    &__sponsor {
+      margin-right: 0px;
+      color: darkgoldenrod;
+    }
+  }
+  
+  .header {
+    display: flex;
+    padding-top: 70px;
+    justify-content: center;
+    background-color: transparent;
+    max-width: 800px;
+    margin-bottom: 9%;
+  
+    &__info {
+      padding: 30px;
+      border-radius: 7px;
+      background-color: darksalmon;
+      width: 86%;
+  
+      &--logPannel {
+        text-align: center;
+        color: rebeccapurple;
+        font-family: monospace;
+        font-size: 20px;
+  
+        > span {
+          font-size: 30px;
+          color:black;
+        }
+  
+        &-choose-player-btn {
+          display: flex;
+          justify-content: center;
+          max-width: 289px;
+          margin-left: auto;
+          margin-right: auto;
+          color: darkcyan;
+          font-family: monospace;
+          font-size: 19px;
+          font-weight: bolder;
+        }
+  
+        &-start-game-btn {
+          display: flex;
+          justify-content: center;
+          max-width: 289px;
+          margin-left: auto;
+          margin-right: auto;
+          font-family: monospace;
+          font-size: 19px;
+          font-weight: bolder;
+        }
+        
+        &-restart-game-btn {
+          display: flex;
+          justify-content: center;
+          max-width: 300px;
+          margin-left: auto;
+          margin-right: auto;
+          font-family: monospace;
+          font-size: 19px;
+          font-weight: bolder;
+        }      
+      }
+    }
+  }
+  
+  .battlefield {
+    display: inline-flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-top: 60px;
+  
+    &__player1 {
+      max-width: 285px;
+      margin-bottom: 237px;
+  
+      &-buttons {
+        margin: 10px;
+           
+        &--attack {
+          margin-bottom: 7px;
+        }
+  
+        &--spell {
+          margin-bottom: 7px;
+       }
+      }
+  
+      &-gif {
+        margin-bottom: 7px;
+
+        &--frame {
+          border: 5px solid blue;
+          border-radius: 5px;
+        }        
+  
+          &--replacement {
+            min-width: 100%;
+            max-height: 350px;
+            border: 10px solid green;
+          }        
+      }
+    }
+  
+    &__player2 {
+      max-width: 285px;
+      margin-top: 13px;
+      margin-bottom: 237px;
+  
+      &-gif {  
+          &--frame {
+            border: 5px solid red;
+            border-radius: 5px;
+            position: relative;
+            width: 90% !important;
+          }
+  
+          &--replacement {
+            border: 10px solid yellow;
+            width: 225px;
+            height: 300px;
+            min-width: 100%;
+            max-height: 460px;
+            margin-top: 186px;           
+
+          }
+      }
+  
+      &--lifebar-row {
+        margin-top: 7px;
+      }
+    }  
+  }
+  
+  .remove-from-screen {
+    display: none;
+  }
+
+  .add-margin-giff {
+    margin-top: 150px;
+  }
+  
+  .final-giff {
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 350px;
+    width: 400px;
+    
+    &--frame {
+      display: flex;
+      justify-content: center;
+      border: 10px solid green;
+    }
+  }  
+}

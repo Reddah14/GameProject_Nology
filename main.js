@@ -93,7 +93,7 @@ const modifyLifebarPointsOfPlayerOne = (typeOfAttackParam, pointsToModifyParam) 
     }, 1500);
   } else {
     if ( typeOfAttackParam === "attack" ) {
-      printAtLogPannel(`CPU Attacks!! 🗡🗡🗡 on Player 1 ! And takes ${attackDamage} life points . . . .`);
+      printAtLogPannel(`CPU Attacks!! 🗡🗡🗡 on Player 1 ! And takes ${pointsToModifyParam} life points . . . .`);
       lifeBarsArray[0].style.width = readyToApplyLife;
 
       return;

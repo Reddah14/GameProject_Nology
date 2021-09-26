@@ -202,6 +202,16 @@ const displayingPlayerOneButtons = () => {
   })
 }
 
+const controlMarginPlayerOneGiff = (controlParam) => {
+  if (controlParam === "add") {
+    const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
+    playerOneMainGiff.classList.add("add-margin-giff");    
+  } else if (controlParam === "remove") {
+    const playerOneMainGiff = document.querySelector("#playerOneMainGiff");
+    playerOneMainGiff.classList.remove("add-margin-giff");  
+  }
+}
+
 const removingPlayerOneButtons = () => {
   const playerOneButtonsArray = Object.values(buttonsArray).filter( button => {
     return button.parentElement.className === "row gap-2 d-md-block battlefield__player1-buttons";
@@ -209,6 +219,9 @@ const removingPlayerOneButtons = () => {
   playerOneButtonsArray.forEach( button => {
     button.classList.add("remove-from-screen");
   })
+  controlMarginPlayerOneGiff("add");
+
+  return;
 }
 
 const resettingLifesToHundredPoints = () => {
@@ -287,12 +300,12 @@ const startGame = () => {
   if ( whoStarts === "cpu" ) {
     removingPlayerOneButtons();
     setTimeout( () => {
-      // After waiting for 3 seconds, call the function below.
       CPUselectRandomOption();
     }, 2000);
 
     setTimeout( () => {
       displayingPlayerOneButtons();
+      controlMarginPlayerOneGiff("remove");
     }, 2500);
   }
 }

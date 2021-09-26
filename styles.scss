@@ -176,6 +176,61 @@ body {
       }
     }
   
+    &__player2 {
+      max-width: 285px;
+      margin-bottom: 237px;
+/*       background-color: transparent;
+ */  
+      &-buttons {
+        
+        &--attack {
+/*           display: none;
+          margin-bottom: 3px; */
+        }
+  
+        &--spell {
+/*           display: none;
+          margin-bottom: 3px; */
+        }
+        
+        &--pizza {
+/*           display: none;
+          margin-bottom: 8px; */
+        }      
+      }
+  
+      &-gif {
+/*         margin-top: auto;
+        height: auto;
+        width: auto;
+        background-color: transparent; */
+  
+          &--frame {
+/*             //display: none;
+            border: 5px solid red;
+            border-radius: 5px; */
+/*             max-width: 70%;
+            max-height: 77%; */
+            position: relative;
+            width: 90% !important;
+          }
+  
+          &--replacement {
+/*             //display: none;
+            width: 240px;
+            height:200px;
+            border: 10px solid yellow; */
+          }
+        }
+  
+      &--lifebar-row {
+        margin-top: 7px;
+/*         width: 100%;
+        margin-top: 5px; */
+      }
+    }  
+  }
+  
     display: none;
   }
 }

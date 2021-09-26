@@ -154,8 +154,7 @@ body {
       max-width: 285px;
       margin-bottom: 237px;
   
-      &-gif {
-  
+      &-gif {  
           &--frame {
             border: 5px solid red;
             border-radius: 5px;
@@ -172,7 +171,7 @@ body {
             margin-top: 200px;           
 
           }
-        }
+      }
   
       &--lifebar-row {
         margin-top: 7px;
@@ -182,6 +181,10 @@ body {
   
   .remove-from-screen {
     display: none;
+  }
+
+  .add-margin-giff {
+    margin-top: 150px;
   }
   
   .final-giff {

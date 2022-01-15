@@ -373,7 +373,6 @@ const CPUeatPizza = () => {
 }
 
 buttonsArray.forEach( button => {
-
   button.addEventListener( "click", event => {
     if ( event.target.name === "ChoosePlayerToStart" ) {
       const ChoosePlayerToStartBtn = event.target;
